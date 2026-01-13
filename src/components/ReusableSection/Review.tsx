@@ -84,25 +84,26 @@ export default function Review() {
   return (
     <section className="relative w-full py-16 px-4 text-center">
       {/* Background image */}
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <Image
-          src="/images/car.jpg" // replace with your image
+          src="/images/car.jpg"  
           alt="Testimonials Background"
           fill
           className="object-cover object-center"
           priority
         />
         <div className="absolute inset-0 bg-black/40"></div>{" "}
-        {/* Dark overlay */}
-      </div>
+       
+      </div> */}
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto">
+        <p>Testimonials</p>
         <h2 className="text-3xl font-semibold text-white mb-2">
-          What Our Patients Say
+         <span className="text-[#2E266D]">Loved</span> <span className="text-[#B5ED5B]">By Industry</span> <span>Professionals</span>
         </h2>
         <p className="text-gray-200 mb-10 max-w-2xl mx-auto">
-          Voices of our patients&apos;s journeys.
+          See what leading yacht brokers and dealers have to say about YachtAI
         </p>
 
         {/* Slider */}
