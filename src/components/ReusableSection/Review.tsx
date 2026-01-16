@@ -1,8 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import Image from "next/image";
 
 export default function Review() {
@@ -13,27 +12,27 @@ export default function Review() {
     text: string;
     rating: number;
   }[] = [
-    {
-      name: "P.S.",
-      text: `“What a joy it’s been working with Madeline! She’s absolutely wonderful! She’s super kind, patient, and really knows what she’s doing. From the first day, she made me feel comfortable and cared for. I never felt silly just supported! Madeline not only listens to me but has actively helped me to feel great while always smiling with gentle words of encouragement! I would recommend Dr. May to anyone looking for a wonderful physical therapist!”`,
-      rating: 5,
-    },
-    {
-      name: "L.S.",
-      text: `“I met with Kevin after I broke my ankle. He was kind, conscientious, and very helpful. His breadth of knowledge and experience is evident in the way He explains any exercises, the need for specific movements, and why long-term they are important. I highly recommend him to others, and credit Lolo Physical Therapy with their attention to detail. Because of them, I've regained my mobility and strength.”`,
-      rating: 5,
-    },
-    {
-      name: "K.M.",
-      text: `“They truly care about each patient. The care is always very kind and compassionate. I've been to a lot of PT and this has been my best experience.”`,
-      rating: 5,
-    },
-    {
-      name: "M.G.",
-      location: "Los Angeles, CA",
-      text: `“Went in for a few visits with Madeline to fix my plantar faciitis. In the first ten minutes, she identified the root cause for the injury which I never would have thought as a contributor. During the consults she wrote down the home exercises in a way I could understand which helped me ensure I was doing them correctly. Its always worth the travel time to see Madeline. Its nice to feel like you're working with a PT whose goal is to treat patients not increase profits.”`,
-      rating: 5,
-    },
+    // {
+    //   name: "P.S.",
+    //   text: `“What a joy it’s been working with Madeline! She’s absolutely wonderful! She’s super kind, patient, and really knows what she’s doing. From the first day, she made me feel comfortable and cared for. I never felt silly just supported! Madeline not only listens to me but has actively helped me to feel great while always smiling with gentle words of encouragement! I would recommend Dr. May to anyone looking for a wonderful physical therapist!”`,
+    //   rating: 5,
+    // },
+    // {
+    //   name: "L.S.",
+    //   text: `“I met with Kevin after I broke my ankle. He was kind, conscientious, and very helpful. His breadth of knowledge and experience is evident in the way He explains any exercises, the need for specific movements, and why long-term they are important. I highly recommend him to others, and credit Lolo Physical Therapy with their attention to detail. Because of them, I've regained my mobility and strength.”`,
+    //   rating: 5,
+    // },
+    // {
+    //   name: "K.M.",
+    //   text: `“They truly care about each patient. The care is always very kind and compassionate. I've been to a lot of PT and this has been my best experience.”`,
+    //   rating: 5,
+    // },
+    // {
+    //   name: "M.G.",
+    //   location: "Los Angeles, CA",
+    //   text: `“Went in for a few visits with Madeline to fix my plantar faciitis. In the first ten minutes, she identified the root cause for the injury which I never would have thought as a contributor. During the consults she wrote down the home exercises in a way I could understand which helped me ensure I was doing them correctly. Its always worth the travel time to see Madeline. Its nice to feel like you're working with a PT whose goal is to treat patients not increase profits.”`,
+    //   rating: 5,
+    // },
     {
       name: "M.G.",
       location: "Los Angeles, CA",
@@ -97,12 +96,14 @@ export default function Review() {
       </div> */}
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto">
-        <p>Testimonials</p>
-        <h2 className="text-3xl font-semibold text-white mb-2">
-         <span className="text-[#2E266D]">Loved</span> <span className="text-[#B5ED5B]">By Industry</span> <span>Professionals</span>
+      <div className="relative z-10 container  text-start mx-auto">
+        <span  className="bg-[#ECFECD] text-[#65A30D] px-4 py-2 rounded-full ">Testimonials</span>
+        <h2 className="text-3xl font-semibold text-white mb-2 mt-2">
+          <span className="text-[#2E266D]">Loved</span>{" "}
+          <span className="text-[#B5ED5B]">By Industry</span>{" "}
+          <span className="text-[#2E266D]">Professionals</span>
         </h2>
-        <p className="text-gray-200 mb-10 max-w-2xl mx-auto">
+        <p className="text-[#5D665E] vmb-10 max-w-2xl  text-start mb-8">
           See what leading yacht brokers and dealers have to say about YachtAI
         </p>
 
@@ -118,33 +119,12 @@ export default function Review() {
             {testimonials.map((t, i) => (
               <Card
                 key={i}
-                className="shrink-0 rounded-2xl shadow-md border my-3 border-gray-100 hover:shadow-sm transition-all duration-300"
+                className="shrink-0 bg-[#5A50F5] py-0 rounded-2xl shadow-md border my-3 border-gray-100 hover:shadow-sm transition-all duration-300"
                 style={{ width: cardWidth }}
               >
-                <CardContent className="p-6 text-left flex flex-col h-full justify-start">
+                <CardContent className="px-6 pt-6 text-left flex flex-col h-full justify-start">
+                  
                   <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      {t.image ? (
-                        <Image
-                          src={t.image}
-                          alt={t.name}
-                          width={48}
-                          height={48}
-                          className="rounded-full object-cover"
-                        />
-                      ) : (
-                        <div className="flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full font-medium text-sm">
-                          {t.name?.charAt(0).toUpperCase()}
-                        </div>
-                      )}
-                      <div>
-                        <p className="font-semibold text-gray-800">{t.name}</p>
-                        {t.location && (
-                          <p className="text-sm text-gray-500">{t.location}</p>
-                        )}
-                      </div>
-                    </div>
-
                     <div className="flex items-center gap-1">
                       {[...Array(5)].map((_, idx) => (
                         <Star
@@ -152,7 +132,7 @@ export default function Review() {
                           size={16}
                           className={`${
                             idx < t.rating
-                              ? "text-yellow-400 fill-yellow-400"
+                              ? "text-[#B5ED5B] fill-[#B5ED5B]"
                               : "text-gray-300"
                           } transition-all duration-200`}
                         />
@@ -160,9 +140,31 @@ export default function Review() {
                     </div>
                   </div>
 
-                  <p className="text-gray-600 italic text-sm leading-relaxed">
+                  <p className="text-white italic text-sm leading-relaxed">
                     {t.text}
                   </p>
+
+                  <div className="flex items-center gap-3 mt-5">
+                    {t.image ? (
+                      <Image
+                        src={t.image}
+                        alt={t.name}
+                        width={48}
+                        height={48}
+                        className="rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full font-medium text-sm">
+                        {t.name?.charAt(0).toUpperCase()}
+                      </div>
+                    )}
+                    <div>
+                      <p className="font-semibold text-white">{t.name}</p>
+                      {t.location && (
+                        <p className="text-sm text-white">{t.location}</p>
+                      )}
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -170,7 +172,7 @@ export default function Review() {
         </div>
 
         {/* Navigation */}
-        <div className="flex items-center justify-center gap-4 mt-10">
+        {/* <div className="flex items-center justify-center gap-4 ">
           <Button
             onClick={handlePrev}
             size="icon"
@@ -214,7 +216,7 @@ export default function Review() {
           >
             <ChevronRight className="w-5 h-5" />
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

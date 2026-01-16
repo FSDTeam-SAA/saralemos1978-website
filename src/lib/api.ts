@@ -17,3 +17,14 @@ export async function getAllReview(page = 1, limit = 10) {
     throw new Error("Failed to fetch all reviews with pagination");
   }
 }
+
+
+export async function getSubscription() {
+  try {
+    const res = await api.get(`/subscription/get-all`);
+    return res.data;
+  } catch (err) {
+    console.error("Error fetching reviewss:", err);
+    throw new Error("Failed to fetch all reviews with pagination");
+  }
+}

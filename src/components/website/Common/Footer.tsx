@@ -1,220 +1,152 @@
-import { Button } from "@/components/ui/button";
-import {
-  CalendarDays,
-  Facebook,
-  Instagram,
-  Mail,
-  MapPin,
-  Phone,
-  Twitter,
-  Youtube,
-} from "lucide-react";
-import Image from "next/image";
+import React from "react";
 import Link from "next/link";
-import { FaTiktok } from "react-icons/fa";
+import { Facebook, Linkedin, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="relative w-full text-white py-12 overflow-hidden">
-      {/* 🔹 Background Layer (blurred & darkened) */}
-      <div className="absolute inset-0 bg-cover bg-gray-700 bg-center bg-no-repeat blur-sm brightness-50"></div>
-      <div className="absolute inset-0 bg-white/40"></div>
+    <footer className="bg-[#2C2668] text-white py-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-0">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 border-b border-gray-700 pb-8">
+          {/* Left Column - Brand & Description */}
+          <div className="space-y-4">
+            <h1 className="text-3xl font-bold text-white">USM PTCR</h1>
+            <p className="text-white/80 leading-relaxed max-w-md">
+              Active surveillance testing or detecting cases and providing the
+              necessary information to the relevant authorities for timely
+              action.
+            </p>
+          </div>
 
-      {/* 🔹 Optional dark overlay for extra contrast */}
-      <div className="absolute inset-0 bg-black/40"></div>
+          {/* Company Links */}
+          <div>
+            <h2 className="text-lg font-semibold text-white mb-4 pb-2 ">
+              Company
+            </h2>
+            <ul className="space-y-3">
+              {[
+                { name: "Cloud Mutual", href: "#" },
+                { name: "Infoline", href: "#" },
+                { name: "Pricing", href: "#" },
+                { name: "Start Free Trial Report", href: "#" },
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-white/80 hover:text-white transition-colors duration-300 flex items-center group"
+                    aria-label={`Navigate to ${link.name}`}
+                  >
+                    <span className="w-1 h-1 bg-blue-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-      {/* 🔹 Content Layer */}
-      <div className="relative container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
-        {/* Left Section */}
-        <div>
-          <Link href="/" className="w-24 h-20">
-            <Image
-              src="/images/logo.png"
-              alt="Footer Logo"
-              width={90}
-              height={80}
-              className="mb-2 w-24 h-20  object-cover"
-            />
-          </Link>
-          <p className="text-gray-200">
-            Design amazing digital experiences that create more happy in the
-            world.
-          </p>
-          <div className="flex gap-4 mt-6">
-            <Link href="https://x.com/GalindoMasonry" target="_blank">
-              <Button
-                variant="outline"
-                className="w-10  text-white bg-[#CA9520] rounded-lg font-medium
-                             transition-all duration-300
-                             group-hover:bg-[#CA9520] cursor-pointer group-hover:text-black "
-              >
-                <Twitter className="w-4 h-4 sm:w-5 sm:h-5" />
-              </Button>
-            </Link>
-            <Link
-              href="https://www.facebook.com/galindosmasonryllc/"
-              target="_blank"
-            >
-              <Button
-                variant="outline"
-                className="w-10  text-white bg-[#CA9520] rounded-lg font-medium
-                             transition-all duration-300
-                             group-hover:bg-[#CA9520] cursor-pointer group-hover:text-black "
-              >
-                <Facebook className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer" />
-              </Button>
-            </Link>
-            <Link
-              href="https://www.tiktok.com/@galindos.masonry.llc"
-              target="_blank"
-            >
-              <Button
-                variant="outline"
-                className="w-10  text-white bg-[#CA9520] rounded-lg font-medium
-                             transition-all duration-300
-                             group-hover:bg-[#CA9520] cursor-pointer group-hover:text-black "
-              >
-                <FaTiktok className="w-4 h-4 sm:w-5 sm:h-5" />
-              </Button>
-            </Link>
-            <Link
-              href="https://www.youtube.com/@GalindosMasonryLLC"
-              target="_blank"
-            >
-              <Button
-                variant="outline"
-                className="w-10  text-white bg-[#CA9520] rounded-lg font-medium
-                             transition-all duration-300
-                             group-hover:bg-[#CA9520] cursor-pointer group-hover:text-black "
-              >
-                <Youtube className="w-4 h-4 sm:w-5 sm:h-5" />
-              </Button>
-            </Link>
-            <Link
-              href="www.https://www.instagram.com/galindosmasonryllc/"
-              target="_blank"
-            >
-              <Button
-                variant="outline"
-                className="w-10  text-white bg-[#CA9520] rounded-lg font-medium
-                             transition-all duration-300
-                             group-hover:bg-[#CA9520] cursor-pointer group-hover:text-black "
-              >
-                <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
-              </Button>
-            </Link>
+          {/* Support Links */}
+          <div>
+            <h2 className="text-lg font-semibold text-white mb-4 pb-2 ">
+              Support
+            </h2>
+            <ul className="space-y-3">
+              {[
+                { name: "Help Center", href: "#" },
+                { name: "Contact", href: "#" },
+                { name: "FAQ", href: "#" },
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-white/80 hover:text-white transition-colors duration-300 flex items-center group"
+                    aria-label={`Navigate to ${link.name}`}
+                  >
+                    <span className="w-1 h-1 bg-green-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal Links */}
+          <div>
+            <h2 className="text-lg font-semibold text-white mb-4 pb-2 ">
+              Legal
+            </h2>
+            <ul className="space-y-3">
+              {[
+                { name: "Privacy Policy", href: "#" },
+                { name: "Terms & Conditions", href: "#" },
+                { name: "Security", href: "#" },
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-white/80 hover:text-white transition-colors duration-300 flex items-center group"
+                    aria-label={`Navigate to ${link.name}`}
+                  >
+                    <span className="w-1 h-1 bg-purple-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Newsletter Subscription & Social Links */}
+          <div className="space-y-6">
+            <div>
+              <p className="text-white/80 text-sm mb-4 italic">
+                Submit your applets here
+              </p>
+              <form className="flex flex-col sm:flex-row gap-2">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-grow px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+                  aria-label="Email address for subscription"
+                />
+                <button
+                  type="submit"
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300 whitespace-nowrap"
+                  aria-label="Subscribe to newsletter"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
+
+            {/* Social Links with Icons */}
+           <div className="pt-2">
+  <div className="flex space-x-4">
+    <Link
+      href="#"
+      className="bg-blue-600 p-3 rounded-2xl text-white hover:bg-blue-700 transition-colors duration-300"
+      aria-label="Follow us on Facebook"
+    >
+      <Facebook className="w-7 h-7" />
+    </Link>
+    <Link
+      href="#"
+      className="bg-blue-700 p-3 rounded-2xl text-white hover:bg-blue-800 transition-colors duration-300"
+      aria-label="Follow us on LinkedIn"
+    >
+      <Linkedin className="w-7 h-7" />
+    </Link>
+    <Link
+      href="#"
+      className="bg-pink-600 p-3 rounded-2xl text-white hover:bg-pink-700 transition-colors duration-300"
+      aria-label="Follow us on Instagram"
+    >
+      <Instagram className="w-7 h-7" />
+    </Link>
+  </div>
+</div>
           </div>
         </div>
 
-        {/* Middle Section */}
-        <div>
-          <h3 className="text-white text-3xl font-semibold mb-4">Company</h3>
-          <ul className="space-y-2 text-gray-200">
-            <li>
-              <Link
-                href="/"
-                className="hover:text-white hover:underline transition"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/services"
-                className="hover:text-white hover:underline transition"
-              >
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about-us"
-                className="hover:text-white hover:underline transition"
-              >
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/gallery"
-                className="hover:text-white hover:underline transition"
-              >
-                Gallery
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/contact-us"
-                className="hover:text-white hover:underline transition"
-              >
-                Contact Us
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Right Section */}
-        <div>
-          <h3 className="font-semibold text-3xl text-white mb-4">Contact Us</h3>
-          <ul className="space-y-4 text-gray-200">
-            {/* Phone */}
-            <li className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-[#CA9520]" />
-              <a
-                href="tel:480-432-9579"
-                className="hover:underline text-[10px] sm:text-xs md:text-sm transition-colors"
-              >
-                480-432-9579
-              </a>
-            </li>
-
-            {/* Email */}
-            <li className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-[#CA9520]" />
-              <a
-                href="mailto:example@example.com"
-                className="hover:underline text-[10px] sm:text-xs md:text-sm transition-colors"
-              >
-                example@example.com
-              </a>
-            </li>
-
-            {/* Location */}
-            <li className="flex items-start gap-2">
-              <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#CA9520]" />
-              <span className="text-[10px] sm:text-xs md:text-sm">
-                Mesa, AZ
-              </span>
-            </li>
-          </ul>
-        </div>
-        <div className="">
-          <h3 className="font-semibold text-3xl text-white mb-4">Hours</h3>
-
-          <div className="flex items-center gap-4 mt-2">
-            <div className="">
-              <Button
-                variant="outline"
-                className="w-8  text-white bg-[#CA9520] rounded-lg font-medium
-                             transition-all duration-300
-                              "
-              >
-                <CalendarDays className="w-10 h-10 sm:w-5 sm:h-5" />
-              </Button>
-            </div>
-            <div className="">
-              <div className="">
-                <p>Monday - Friday</p>
-                <p>6:00 AM - 6:00 PM</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom Copyright */}
-      <div className="relative mt-12 border-t container mx-auto border-gray-600 pt-6 text-center text-gray-300 text-sm">
-        © 2025 HIERRO A MEDIDA. All rights reserved.
+     
       </div>
     </footer>
   );

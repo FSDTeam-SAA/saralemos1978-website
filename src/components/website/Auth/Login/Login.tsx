@@ -36,7 +36,7 @@ export default function Login() {
         toast.error(result?.error || "Login failed. Please try again.");
       }
     } catch (err) {
-      toast.error("Something went wrong. Please try again.");
+      toast.error(  "Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
     }
