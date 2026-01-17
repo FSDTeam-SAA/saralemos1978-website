@@ -144,7 +144,7 @@ export default function Review() {
                     {t.text}
                   </p>
 
-                  <div className="flex items-center gap-3 mt-5">
+                  <div className="flex items-center gap-3 mt-5 mb-4">
                     {t.image ? (
                       <Image
                         src={t.image}

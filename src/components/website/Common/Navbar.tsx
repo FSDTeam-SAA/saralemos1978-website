@@ -25,7 +25,7 @@ export default function Navbar() {
 
   const menuItems = [
     { href: "/", label: "Home" },
-    { href: "/features", label: "Features" },
+    { href: "/about", label: "About" },
     { href: "/showcase", label: "Showcase" },
     { href: "/pricing", label: "Pricing" },
     { href: "/contact", label: "Contact" },
@@ -41,11 +41,11 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/images/logo.png"
+            src="/images/logo.svg"
             alt="logo"
-            width={50}
-            height={50}
-            className="cursor-pointer"
+            width={130}
+            height={130}
+            className="cursor-pointer object-cover"
           />
         </Link>
 
@@ -77,7 +77,7 @@ export default function Navbar() {
 
         {/* ================= Auth Buttons ================= */}
         <div className="flex items-center space-x-4 gap-2">
-          <Link href="/contact-us">
+          <Link href="/sign-up">
             <Button
               variant="outline"
               className=" bg-white rounded-4xl font-medium transition-all duration-300 text-[#904ED4] border border-[#904ED4] cursor-pointer w-40 h-12 "
@@ -85,7 +85,7 @@ export default function Navbar() {
               Sign Up
             </Button>
           </Link>
-          <Link href="/contact-us">
+          <Link href="/login">
             <Button
               variant="outline"
               className=" bg-[#904ED4] rounded-4xl font-medium transition-all duration-300 text-white border border-[#904ED4] cursor-pointer w-40 h-12 "

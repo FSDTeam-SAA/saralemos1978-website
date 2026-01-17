@@ -25,7 +25,7 @@ const HaveQuestion = ({
       </p>
 
       <div>
-        <Button className="bg-[#5A50F5] text-[#B5ED5B] text-base font-semibold leading-[150%] px-6 py-2 rounded-full">
+        <Button className="bg-[#5A50F5] cursor-pointer text-[#B5ED5B] text-base font-semibold leading-[150%] px-6 py-2 rounded-full">
           {buttonText}
         </Button>
       </div>
