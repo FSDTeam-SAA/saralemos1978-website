@@ -4,15 +4,14 @@ import { ArrowRight } from "lucide-react";
 
 export default function Banner() {
   return (
-    <section className="relative h-screen w-full">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80')",
-        }}
-      />
+<section className="relative h-screen w-full">
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    style={{
+      backgroundImage: "url('/images/banner.jpeg')",
+    }}
+  />
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50" />
