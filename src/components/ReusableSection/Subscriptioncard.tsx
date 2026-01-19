@@ -2,7 +2,13 @@ import { Check } from "lucide-react";
 import { SubscriptionPlan } from "@/lib/type/subscription";
 import React from "react";
 
-const Subscriptioncard = ({ plan }: { plan: SubscriptionPlan }) => {
+const Subscriptioncard = ({ 
+  plan, 
+  onSubscribe 
+}: { 
+  plan: SubscriptionPlan; 
+  onSubscribe?: (plan: SubscriptionPlan) => void 
+}) => {
   const {
     name,
     price,
@@ -73,6 +79,7 @@ const Subscriptioncard = ({ plan }: { plan: SubscriptionPlan }) => {
 
           {/* CTA Button */}
           <button
+            onClick={() => onSubscribe?.(plan)}
             className={`
             w-full py-4 rounded-4xl font-semibold text-lg transition-all duration-300
             ${
