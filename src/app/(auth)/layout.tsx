@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="relative h-screen flex items-center justify-center bg-[#ECF3EC] overflow-hidden">
+    <div className="relative h-screen flex items-center justify-center bg-[#ECF3EC] overflow-hidden ">
       {/* 🔹 Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -25,7 +25,7 @@ export default function RootLayout({
       <div className="absolute inset-0 bg-black/20" />
 
       {/* 🔹 Content */}
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 overflow-y-scroll max-h-screen  ">{children}</div>
     </div>
   );
 }
