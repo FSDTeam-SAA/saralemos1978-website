@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React from "react";
 import { Check, Star, Zap, Shield, TrendingUp, Users } from "lucide-react";
@@ -5,8 +6,16 @@ import Subscriptioncard from "@/components/ReusableSection/Subscriptioncard";
 import { useQuery } from "@tanstack/react-query";
 import { getSubscription } from "@/lib/api";
 import { SubscriptionPlan, ApiResponse } from "@/lib/type/subscription";
+import { useSession } from "next-auth/react";
+import { usePayment, PaymentVariables } from "@/lib/hooks/usePayment";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const Subscription = () => {
+  const { data: session } = useSession();
+  const { mutate: subscribe, isPending: isSubscribing } = usePayment();
+  const router = useRouter();
+
   const {
     data: response,
     isLoading,
@@ -15,6 +24,40 @@ const Subscription = () => {
     queryKey: ["subscription"],
     queryFn: getSubscription,
   });
+
+  const handleSubscribe = (plan: SubscriptionPlan) => {
+    if (!session?.user) {
+      toast.error("Please login to subscribe");
+      router.push("/login");
+      return;
+    }
+
+    // Safe extraction of userId
+    const user = session.user as { id?: string; _id?: string; email?: string };
+    const userId = user?.id || user?._id;
+
+    if (!userId) {
+      toast.error("User ID not found. Please re-login.");
+      return;
+    }
+
+    const variables: PaymentVariables = { userId: userId, planId: plan._id };
+
+    subscribe(variables, {
+      onSuccess: (data) => {
+        toast.success("Subscription initialized successfully!");
+
+        const url = data?.data?.url;
+        if (url) {
+          window.open(url, "_blank");
+        }
+      },
+
+      onError: (error: any) => {
+        toast.error(error.message || "Failed to initialize subscription");
+      },
+    });
+  };
 
   if (isLoading) {
     return (
@@ -46,7 +89,7 @@ const Subscription = () => {
   // const sortedPlans = [...plans].sort((a, b) => a.price - b.price);
 
   // Decorate plans with UI-specific flags
-  const decoratedPlans = plans.map((plan) => ({
+  const decoratedPlans: SubscriptionPlan[] = plans.map((plan) => ({
     ...plan,
     popular: plan.price === maxPrice && plan.price > 0,
     featured: plan.price === maxPrice && plan.price > 0,
@@ -77,9 +120,9 @@ const Subscription = () => {
 
         {/* Pricing Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 items-stretch">
-          {decoratedPlans.map((plan: SubscriptionPlan) => (
+          {decoratedPlans.map((plan) => (
             <div key={plan._id}>
-              <Subscriptioncard plan={plan} />
+              <Subscriptioncard plan={plan} onSubscribe={handleSubscribe} />
             </div>
           ))}
         </div>
