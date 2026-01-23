@@ -1,44 +1,81 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // import useAuth from "@/lib/hooks/useAuth";
 // import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { useSentOtp } from "@/lib/hooks/useAuth";
+import { toast } from "sonner";
 
 export default function VerifyOTP() {
-  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+  const { mutate, isPending } = useSentOtp();
   const router = useRouter();
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-  // const { handleVerifyOtp, loading } = useAuth();
+  useEffect(() => {
+    inputRefs.current[0]?.focus();
+  }, []);
 
   const handleChange = (value: string, index: number) => {
-    if (value.length > 1) return;
+    if (value.length > 1) {
+      // Handle paste
+      const pastedData = value.slice(0, 6).split("");
+      const newOtp = [...otp];
+      pastedData.forEach((char, i) => {
+        if (index + i < 6) newOtp[index + i] = char;
+      });
+      setOtp(newOtp);
+      const nextIndex = Math.min(index + pastedData.length, 5);
+      inputRefs.current[nextIndex]?.focus();
+      return;
+    }
 
     const newOtp = [...otp];
     newOtp[index] = value;
     setOtp(newOtp);
 
     if (value && index < 5) {
-      document.getElementById(`otp-${index + 1}`)?.focus();
+      inputRefs.current[index + 1]?.focus();
     }
   };
 
-  // const handleVerify = async () => {
-  //   const otpCode = otp.join("");
-  //   const res = await handleVerifyOtp(otpCode);
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
+    if (e.key === "Backspace" && !otp[index] && index > 0) {
+      inputRefs.current[index - 1]?.focus();
+    } else if (e.key === "Enter") {
+      handleVerify();
+    }
+  };
 
-  //   if (res?.success) {
-  //     toast.success("OTP verified successfully!");
+  const handleVerify = () => {
+    const otpCode = otp.join("");
+    if (otpCode.length < 6) {
+      toast.error("Please enter the full 6-digit code");
+      return;
+    }
 
-  //     setTimeout(() => {
-  //       router.push(`/reset-password`);
-  //     }, 1000);
-  //   } else {
-  //     toast.error(res?.message || "Failed to verify OTP");
-  //   }
-  // };
+    const email = localStorage.getItem("resetEmail");
+    if (!email) {
+      toast.error("Session expired. Please try resetting your password again.");
+      router.push("/forget-password");
+      return;
+    }
 
+    mutate(
+      { otp: otpCode, email },
+      {
+        onSuccess: (data) => {
+          toast.success(data.message || "OTP verified successfully!");
+          router.push("/reset-password");
+        },
+        onError: (error) => {
+          toast.error(error.message || "Invalid OTP. Please try again.");
+        },
+      }
+    );
+  };
   return (
     <div className="min-h-screen flex items-center justify-center  px-4">
       {/* Card */}

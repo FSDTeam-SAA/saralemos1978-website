@@ -1,77 +1,126 @@
-import React from 'react'
+import Image from "next/image";
+import { MapPin } from "lucide-react";
+import React from "react";
+
+const featuredYachts = [
+  {
+    name: "Northern Star",
+    model: "Oyster 82",
+    length: "82 ft",
+    year: 2019,
+    location: "Phuket, Thailand",
+    image: "/about/featured.jpg",
+    status: "Sale",
+  },
+  {
+    name: "Pacific Dreams",
+    model: "Oyster 82",
+    length: "82 ft",
+    year: 2019,
+    location: "Phuket, Thailand",
+    image: "/about/featured2.jpg",
+    status: "Charter",
+  },
+  {
+    name: "Ocean Serenity",
+    model: "Oyster 82",
+    length: "82 ft",
+    year: 2019,
+    location: "Phuket, Thailand",
+    image: "/about/featured3.jpg",
+    status: "Sale",
+  },
+];
 
 const AboutFeatured = () => {
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-4">
-            <span className="text-gray-800">Featured </span>
-            <span className="text-orange-500">Yacht Listings</span>
+    <section
+      className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50"
+      aria-labelledby="featured-yachts-heading"
+    >
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <header className="mb-10">
+          <h2
+            id="featured-yachts-heading"
+            className="text-3xl md:text-4xl font-bold text-gray-800"
+          >
+            Featured <span className="text-orange-500">Yacht Listings</span>
           </h2>
-          <p className="text-sm text-gray-600 mb-8">
-            Browse our curated selection of premium yachts available for charter or purchase in Southeast Asia.
+          <p className="mt-2 max-w-2xl text-sm md:text-base text-gray-600">
+            Explore premium yachts available for sale or charter across
+            Southeast Asia through our trusted yacht brokerage network.
           </p>
+        </header>
 
-          {/* Yacht Cards */}
-          <div className="grid grid-cols-3 gap-6 mb-8">
-            {/* Yacht 1 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-48 overflow-hidden">
-                <img src="/about/featured.jpg" alt="Northsea 51 Boat" className="w-full h-full object-cover" />
+        {/* Yacht Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {featuredYachts.map((yacht, index) => (
+            <article
+              key={index}
+              className="relative bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition"
+              itemScope
+              itemType="https://schema.org/Product"
+            >
+              {/* Status Badge */}
+              <span
+                className="absolute top-4 left-4 z-10 rounded-full bg-black/40 px-4 py-1 text-xs font-semibold text-white backdrop-blur-md"
+                aria-hidden="true"
+              >
+                {yacht.status}
+              </span>
+
+              {/* Image */}
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src={yacht.image}
+                  alt={`${yacht.name} ${yacht.model} yacht in ${yacht.location}`}
+                  fill
+                  priority={index === 0}
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  className="object-cover"
+                />
               </div>
+
+              {/* Content */}
               <div className="p-4">
-                <h3 className="font-semibold text-gray-800 mb-2">Northsea 51 Boat</h3>
-                <div className="text-xs text-gray-600 space-y-1 mb-4">
-                  <p>Length: 51 ft</p>
-                  <p>Type: Luxury Cruiser</p>
-                  <p>Guests: 8</p>
-                </div>
-                <p className="text-orange-500 font-semibold text-sm">$450/day</p>
-              </div>
-            </div>
+                <h3
+                  className="mb-2 font-semibold text-gray-800"
+                  itemProp="name"
+                >
+                  {yacht.name}
+                </h3>
 
-            {/* Yacht 2 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-48 overflow-hidden">
-                <img src="/about/featured2.jpg" alt="Pacific Dreams" className="w-full h-full object-cover" />
-              </div>
-              <div className="p-4">
-                <h3 className="font-semibold text-gray-800 mb-2">Pacific Dreams</h3>
-                <div className="text-xs text-gray-600 space-y-1 mb-4">
-                  <p>Length: 65 ft</p>
-                  <p>Type: Motor Yacht</p>
-                  <p>Guests: 12</p>
+                <div className="space-y-1 text-sm text-gray-600">
+                  <p itemProp="model">{yacht.model}</p>
+                  <p>
+                    {yacht.length}
+                    <span className="px-2">•</span>
+                    {yacht.year}
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-orange-500" />
+                    <span itemProp="areaServed">{yacht.location}</span>
+                  </p>
                 </div>
-                <p className="text-orange-500 font-semibold text-sm">$750/day</p>
               </div>
-            </div>
-
-            {/* Yacht 3 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-48 overflow-hidden">
-                <img src="/about/featured3.jpg" alt="Ocean Serenity" className="w-full h-full object-cover" />
-              </div>
-              <div className="p-4">
-                <h3 className="font-semibold text-gray-800 mb-2">Ocean Serenity</h3>
-                <div className="text-xs text-gray-600 space-y-1 mb-4">
-                  <p>Length: 48 ft</p>
-                  <p>Type: Sailing Yacht</p>
-                  <p>Guests: 6</p>
-                </div>
-                <p className="text-orange-500 font-semibold text-sm">$380/day</p>
-              </div>
-            </div>
-          </div>
-
-          {/* View More Button */}
-          <div className="flex justify-center">
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold transition-colors">
-              See More Listings
-            </button>
-          </div>
+            </article>
+          ))}
         </div>
-      </section>
-  )
-}
 
-export default AboutFeatured
+        {/* CTA */}
+        <div className="flex justify-center">
+          <a
+            href="/yachts"
+            className="inline-flex items-center justify-center rounded-lg bg-orange-500 px-8 py-3 font-semibold text-white hover:bg-orange-600 transition"
+            aria-label="View all yacht listings"
+          >
+            See More
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default AboutFeatured;

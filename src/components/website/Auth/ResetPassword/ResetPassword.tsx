@@ -6,33 +6,55 @@ import { Eye, EyeOff, LoaderCircle, Lock } from "lucide-react";
 // import { toast } from "sonner";
 // import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { useResetPassword } from "@/lib/hooks/useAuth";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export default function ResetPassword() {
-  const [showPassword1, setShowPassword1] = useState(false);
+   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const { mutate, isPending } = useResetPassword();
+  const router = useRouter();
 
-  // const { handleResetPassword, loading } = useAuth();
-  // const router = useRouter();
+  const handleSave = () => {
+    if (!newPassword || !confirmPassword) {
+      toast.error("Please fill in all fields");
+      return;
+    }
 
-  // const handleSave = async () => {
-  //   if (newPassword !== confirmPassword) {
-  //     toast.error("Passwords do not match!");
-  //     return;
-  //   }
+    if (newPassword !== confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
 
-    // const res = await handleResetPassword(newPassword);
-    // if (res.success) {
-    //   toast.success("Password reset successfully!");
-    //   localStorage.removeItem("email");
-    //   localStorage.removeItem("resetToken");
-    //   router.push("/login");
-    // } else {
-    //   toast.error(res.message || "Something went wrong!");
+    // if (newPassword.length < 8) {
+    //   toast.error("Password must be at least 8 characters long");
+    //   return;
     // }
-  // };
 
+    const email = localStorage.getItem("resetEmail");
+    if (!email) {
+      toast.error("Session expired. Please start the reset process again.");
+      router.push("/forget-password");
+      return;
+    }
+
+    mutate(
+      { newPassword, email },
+      {
+        onSuccess: (data) => {
+          toast.success(data.message || "Password reset successful! Please login.");
+          localStorage.removeItem("resetEmail");
+          router.push("/login");
+        },
+        onError: (error) => {
+          toast.error(error.message || "Something went wrong. Please try again.");
+        },
+      }
+    );
+  };
   return (
     <div className="min-h-screen flex items-center justify-center  px-4 w-[500px]">
       {/* Card */}
