@@ -4,10 +4,12 @@ import React from "react";
 
 const Subscriptioncard = ({ 
   plan, 
-  onSubscribe 
+  onSubscribe,
+  isLoading
 }: { 
   plan: SubscriptionPlan; 
-  onSubscribe?: (plan: SubscriptionPlan) => void 
+  onSubscribe?: (plan: SubscriptionPlan) => void;
+  isLoading?: boolean;
 }) => {
   const {
     name,
@@ -80,16 +82,18 @@ const Subscriptioncard = ({
           {/* CTA Button */}
           <button
             onClick={() => onSubscribe?.(plan)}
+            disabled={isLoading}
             className={`
             w-full py-4 rounded-4xl font-semibold text-lg transition-all duration-300
+            ${isLoading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
             ${
               featured
-                ? "bg-[#B5ED5B] text-black hover:from-blue-700 hover:to-purple-700"
+                ? "bg-[#B5ED5B] text-black hover:opacity-90"
                 : "bg-[#5A50F5] text-white hover:bg-gray-800"
             }
           `}
           >
-            {cta}
+            {isLoading ? "Processing..." : cta}
           </button>
         </div>
 

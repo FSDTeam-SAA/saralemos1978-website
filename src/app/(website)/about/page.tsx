@@ -6,6 +6,7 @@ import AboutWhyWorkUs from '@/components/website/about/AboutWhyWorkUs'
 import CharterInThailand from '@/components/website/about/CharterInThailand'
 import HowLimePitch from '@/components/website/about/HowLimePitch'
 import StillHaveAQuestions from '@/components/website/about/StillHaveAQuestions'
+import HaveAQuestion from '@/components/website/home/HaveAQuestion'
 import React from 'react'
 
 const page = () => {
@@ -18,7 +19,10 @@ const page = () => {
      <AboutFeatured />
      <CharterInThailand />
      <HowLimePitch />
-     <StillHaveAQuestions />
+     {/* <StillHaveAQuestions /> */}
+      <HaveAQuestion />
+
+
     </>
   )
 }

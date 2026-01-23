@@ -63,8 +63,18 @@ const handleFormComplete = () => {
   }
 
   return (
-    <div>
+    <div className='relative h-screen flex items-center justify-center max-h-screen overflow-hidden '>
+         <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/images/yacht.jpeg')",
+        }}
+      />
+      <div className=' z-50 overflow-y-scroll max-h-screen '>
+
       <RegistrationFormContainer onComplete={handleFormComplete} />
+      </div>
+
 
     </div>
   )

@@ -1,12 +1,70 @@
-import axios from "axios";
-import { Currency } from "lucide-react";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+import axios from "axios";
+
+import { getSession } from "next-auth/react";
+
+
+
+// import { Cagliostro } from "next/font/google";
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "/api";
 
 const api = axios.create({
   baseURL: API_URL,
-  withCredentials: true,
 });
+
+api.interceptors.request.use(
+  async (config) => {
+    const session = await getSession();
+    if (session?.accessToken) {
+      config.headers.Authorization = `Bearer ${session?.accessToken}`;
+    } else {
+      console.warn("No token in session");
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+export default api;
+
+
+export async function forgetPassword(email:string) {
+  try{
+         const res= await api.post(`/auth/forget-password`,{email:email});
+         return res.data;
+  }catch(error){
+    if(error instanceof  Error){
+      throw new Error(error.message || 'failed to forget password')
+    }
+  }
+  
+}
+export async function sentOtp(otp:string,email:string) {
+  try{
+         const res= await api.post(`/auth/verify-code`,{otp:otp, email:email});
+         return res.data;
+  }catch(error){
+    if(error instanceof  Error){
+      throw new Error(error.message || 'failed to forget password')
+    }
+  }
+  
+}
+
+export async function resetPassword(newPassword:string,email:string) {
+  try{
+         const res= await api.post(`/auth/reset-password`,{email:email,newPassword:newPassword});
+         return res.data;
+  }catch(error){
+    if(error instanceof  Error){
+      throw new Error(error.message || 'failed to forget password')
+    }
+  }
+  
+}
+
 
 // Get reviews all with pagination and dynamic params
 export async function getAllReview(page = 1, limit = 10) {
