@@ -1,114 +1,116 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from "next/image";
+import React from "react";
 
 const AboutBrokerage = () => {
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12">
-            <span className="text-gray-800">Brokerage </span>
-            <span className="text-orange-500">Services</span>
+    <section
+      className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50"
+      aria-labelledby="brokerage-heading"
+    >
+      <div className="max-w-7xl mx-auto">
+        {/* Section Heading */}
+        <header className="mb-12">
+          <h2
+            id="brokerage-heading"
+            className="text-3xl md:text-4xl font-bold text-gray-800"
+          >
+            Brokerage <span className="text-orange-500">Services</span>
           </h2>
+          <p className="mt-3 max-w-2xl text-gray-600 text-sm md:text-base">
+            Professional yacht brokerage services including sales,
+            representation, and charter advisory across Asia and beyond.
+          </p>
+        </header>
 
-         <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
-
-                {/* Image Grid */}
-          <div className="grid grid-cols-4 gap-4 mb-8">
-            {/* Large left image */}
-            <div className="col-span-2 row-span-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Image Gallery */}
+          <div className="grid grid-cols-4 gap-4">
+            <figure className="col-span-2 row-span-2 relative group">
               <Image
                 src="/about/brokerage.jpg"
-                alt="Luxury yacht"
-                width={392}
-                height={542}
-                className="w-full aspect-square object-cover rounded-lg"
+                alt="Luxury yacht deck lounge with sea view"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover rounded-lg"
               />
-              <p className="text-xs text-gray-600 mt-2 text-center">Luxury Charters</p>
-            </div>
+              <figcaption className="absolute bottom-0 left-0 right-0 rounded-md backdrop-blur-xl text-white text-sm text-center py-1 opacity-0 group-hover:opacity-100 transition">
+                Deck Lounge
+              </figcaption>
+            </figure>
 
-            {/* Top right images */}
-            <div>
-               <Image
-                src="/about/brokerage2.jpg"
-                alt="Luxury yacht"
-                width={392}
-                height={542}
-                className="w-full aspect-square object-cover rounded-lg"
-              />
-            </div>
-            <div>
-               <Image
-                src="/about/brokerage4.jpg"
-                alt="Luxury yacht"
-                width={392}
-                height={542}
-                className="w-full aspect-square object-cover rounded-lg"
-              />
-            </div>
-         
-
-            {/* Bottom right images */}
-            <div>
-             <Image
-                src="/about/brokerage2.jpg"
-                alt="Luxury yacht"
-                width={392}
-                height={542}
-                className="w-full aspect-square object-cover rounded-lg"
-              />
-            </div>
-            
-            <div>
-            <Image
-                src="/about/brokerage5.jpg"
-                alt="Luxury yacht"
-                width={392}
-                height={542}
-                className="w-full aspect-square object-cover rounded-lg"
-              />
-            </div>
+            {[
+              { src: "/about/brokerage2.jpg", label: "Yacht Exterior" },
+              { src: "/about/brokerage4.jpg", label: "Luxury Interior" },
+              { src: "/about/brokerage2.jpg", label: "Open Deck Area" },
+              { src: "/about/brokerage5.jpg", label: "Relaxation Space" },
+            ].map((item, index) => (
+              <figure key={index} className="relative group">
+                <Image
+                  src={item.src}
+                  alt={item.label}
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  className="object-cover rounded-lg"
+                />
+                <figcaption className="absolute bottom-0 left-0 right-0 rounded-md backdrop-blur-md text-white text-xs text-center py-1 opacity-0 group-hover:opacity-100 transition">
+                  {item.label}
+                </figcaption>
+              </figure>
+            ))}
           </div>
-          {/* Services Content */}
-          <div className="grid grid-cols-2 gap-8 mb-8">
+
+          {/* Content */}
+          <article className="space-y-6">
             <div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Yacht Sales</h3>
-              <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                Whether you&apos;re looking to buy or sell a yacht, our experienced team will guide you through every step of
-                the process. From market analysis to negotiation, we ensure you get the best deal possible.
+              <span className="block w-14 h-1 bg-orange-500 mb-3" />
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                Yacht Sales
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Accurate pricing, global exposure, and hands-on representation.
+                Each yacht is promoted through professional storytelling,
+                social-first campaigns, and targeted buyer outreach.
               </p>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Comprehensive market analysis</li>
-                <li>• Professional yacht valuation</li>
-                <li>• Extensive buyer network</li>
-              </ul>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Charter Advisory</h3>
-              <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                Looking for the perfect yacht to charter for your next adventure? We&apos;ll help you find the ideal vessel
-                that meets all your requirements and exceeds your expectations.
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                Buyer Representation
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                From local upgrades to overseas acquisitions, I guide clients
+                through vessel selection, negotiations, surveys, contracts, and
+                delivery logistics.
               </p>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Personalized yacht recommendations</li>
-                <li>• Best available rates</li>
-                <li>• 24/7 charter support</li>
-              </ul>
             </div>
-          </div>
 
-         </div>
-
-
-          {/* CTA Button */}
-          <div className="flex justify-center mb-8">
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold transition-colors">
-              Discover More
-            </button>
-          </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                Charter Advisory
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                A curated selection of yachts across Thailand and the region.
+                Ideal for leisure cruising, events, or corporate charters with
+                seamless planning and expert crew matching.
+              </p>
+            </div>
+          </article>
         </div>
-      </section>
-  )
-}
 
-export default AboutBrokerage
+        {/* CTA */}
+        <div className="flex justify-center mt-12">
+          <a
+            href="/brokerage"
+            className="inline-flex items-center justify-center rounded-full bg-orange-500 px-8 py-3 text-white font-semibold hover:bg-orange-600 transition"
+            aria-label="Learn more about brokerage services"
+          >
+            Discover More
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default AboutBrokerage;

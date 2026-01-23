@@ -1,78 +1,94 @@
-import React from 'react'
+import Image from "next/image";
+import React from "react";
+
+const features = [
+  {
+    icon:'/about/watch.svg',
+    title: "Smart Matching",
+    description:
+      "AI-powered yacht matching that connects clients with vessels perfectly suited to their needs.",
+  },
+  {
+    icon:'/about/loc.svg',
+
+    title: "Transparent Pricing",
+    description:
+      "Clear, competitive pricing with no hidden fees or unexpected charges.",
+  },
+  {
+    icon:'/about/mic.svg',
+
+    title: "Easy Booking",
+    description:
+      "A streamlined booking process with instant confirmation and secure payments.",
+  },
+  {
+    icon:'/about/world.svg',
+    title: "Expert Support",
+    description:
+      "24/7 assistance from yacht industry professionals for smooth experiences.",
+  },
+];
 
 const HowLimePitch = () => {
   return (
     <section
-  className="py-16 px-4 sm:px-6 lg:px-8 from-orange-50 to-white object-cover"
-  style={{ backgroundImage: 'url("/about/limepitch.png")' }}
->
-        <div className="container  mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold">
-              <span className="text-gray-800">How Lime Pitch </span>
-              <span className="text-orange-500">Powers Holmes on Board</span>
-            </h2>
-            <p className="text-gray-600 text-sm mt-2">
-              Our advanced platform streamlines yacht brokerage and charter management
-            </p>
-          </div>
+      className="relative my-10 md:my-16 container mx-auto py-16 px-4 sm:px-6 lg:px-8"
+      aria-labelledby="limepitch-heading"
+    >
+      {/* Background Image */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/about/limepitch.png"
+          alt="Lime Pitch AI marketing background"
+          fill
+          priority
+          className="object-cover"
+        />
+        {/* Overlay for readability */}
+        <div className="absolute inset-0 bg-white/60" />
+      </div>
 
-          <div className="grid grid-cols-4 gap-6">
-            {/* Feature 1 */}
-            <div className="bg-white p-6 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="text-orange-500 mb-4">
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-gray-800 mb-2 text-sm">Smart Matching</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
-                AI-powered yacht matching that connects clients with perfect vessels for their needs.
-              </p>
-            </div>
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <header className="text-center mb-12">
+          <h2
+            id="limepitch-heading"
+            className="text-3xl md:text-4xl font-bold text-gray-800"
+          >
+            How Lime Pitch{" "}
+            <span className="text-orange-500">Powers Holmes On Board</span>
+          </h2>
+          <p className="mt-3 max-w-2xl mx-auto text-sm md:text-base text-gray-600">
+            Holmes On Board is supported by Lime Pitch — an AI-driven marketing
+            assistant built specifically for yacht professionals.
+          </p>
+        </header>
 
-            {/* Feature 2 */}
-            <div className="bg-white p-6 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="text-orange-500 mb-4">
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-gray-800 mb-2 text-sm">Transparent Pricing</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
-                Clear, competitive pricing without hidden fees or surprise charges.
-              </p>
-            </div>
+        {/* Features */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+          {features.map((feature, index) => (
+            <article
+              key={index}
+              className="bg-white p-6 rounded-lg border border-gray-100 hover:shadow-md transition"
+            >
+          
+              <div className="flex gap-3 items-center mb-3">
+                <Image src={feature.icon} alt="watch" width={30} height={30} className=" object-center w-10 h-10"/>
+              <h3 className="mb-2 text-xl font-semibold text-[#E8662A]">
+                {feature.title}
+              </h3>
 
-            {/* Feature 3 */}
-            <div className="bg-white p-6 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="text-orange-500 mb-4">
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" />
-                </svg>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2 text-sm">Easy Booking</h3>
               <p className="text-xs text-gray-600 leading-relaxed">
-                Simplified booking process with instant confirmations and secure payments.
+                {feature.description}
               </p>
-            </div>
-
-            {/* Feature 4 */}
-            <div className="bg-white p-6 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="text-orange-500 mb-4">
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-gray-800 mb-2 text-sm">Expert Support</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
-                24/7 support from industry experts to ensure smooth charter experiences.
-              </p>
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
-      </section>
-  )
-}
+      </div>
+    </section>
+  );
+};
 
-export default HowLimePitch
+export default HowLimePitch;

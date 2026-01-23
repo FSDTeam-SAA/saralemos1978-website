@@ -31,7 +31,7 @@ export default function Login() {
 
       if (result?.ok) {
         toast.success("Logged in successfully!");
-        router.push("/dashboard/all-info");
+        router.push("/");
       } else {
         toast.error(result?.error || "Login failed. Please try again.");
       }
@@ -43,7 +43,7 @@ export default function Login() {
   };
 
   return (
-    <div className="mx-auto container flex justify-center items-center min-h-screen">
+    <div className="mx-auto container flex justify-center items-center min-h-screen overflow-hidden">
       {/* Card Animation */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -53,7 +53,7 @@ export default function Login() {
       >
         {/* Heading */}
         <h1 className="text-4xl font-semibold text-[#65A30D] text-center">
-          Wellcome
+          Welcome
         </h1>
         <p className="text-[#6C757D] mt-2 text-xl text-center">
           Sign in to your yacht broker account

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Facebook, Linkedin, Instagram } from "lucide-react";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -10,7 +11,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 border-b border-gray-700 pb-8">
           {/* Left Column - Brand & Description */}
           <div className="space-y-4">
-            <h1 className="text-3xl font-bold text-white">USM PTCR</h1>
+            <Image
+              src={"/images/logo.svg"}
+              alt="logo"
+              width={40}
+              height={40}
+              className=" object-cover"
+            />
+
             <p className="text-white/80 leading-relaxed max-w-md">
               Active surveillance testing or detecting cases and providing the
               necessary information to the relevant authorities for timely
@@ -118,35 +126,33 @@ const Footer = () => {
             </div>
 
             {/* Social Links with Icons */}
-           <div className="pt-2">
-  <div className="flex space-x-4">
-    <Link
-      href="#"
-      className="bg-blue-600 p-3 rounded-2xl text-white hover:bg-blue-700 transition-colors duration-300"
-      aria-label="Follow us on Facebook"
-    >
-      <Facebook className="w-7 h-7" />
-    </Link>
-    <Link
-      href="#"
-      className="bg-blue-700 p-3 rounded-2xl text-white hover:bg-blue-800 transition-colors duration-300"
-      aria-label="Follow us on LinkedIn"
-    >
-      <Linkedin className="w-7 h-7" />
-    </Link>
-    <Link
-      href="#"
-      className="bg-pink-600 p-3 rounded-2xl text-white hover:bg-pink-700 transition-colors duration-300"
-      aria-label="Follow us on Instagram"
-    >
-      <Instagram className="w-7 h-7" />
-    </Link>
-  </div>
-</div>
+            <div className="pt-2">
+              <div className="flex space-x-4">
+                <Link
+                  href="#"
+                  className="bg-blue-600 p-3 rounded-2xl text-white hover:bg-blue-700 transition-colors duration-300"
+                  aria-label="Follow us on Facebook"
+                >
+                  <Facebook className="w-7 h-7" />
+                </Link>
+                <Link
+                  href="#"
+                  className="bg-blue-700 p-3 rounded-2xl text-white hover:bg-blue-800 transition-colors duration-300"
+                  aria-label="Follow us on LinkedIn"
+                >
+                  <Linkedin className="w-7 h-7" />
+                </Link>
+                <Link
+                  href="#"
+                  className="bg-pink-600 p-3 rounded-2xl text-white hover:bg-pink-700 transition-colors duration-300"
+                  aria-label="Follow us on Instagram"
+                >
+                  <Instagram className="w-7 h-7" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
-
-     
       </div>
     </footer>
   );
