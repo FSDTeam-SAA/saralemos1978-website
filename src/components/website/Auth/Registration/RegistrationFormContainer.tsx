@@ -1,43 +1,45 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
+import { useState } from "react";
 
-import { useRegisterFormStore } from '@/store/useRegisterFormStore'
-import { Step1Form } from './Step1Form'
-import { Step2Form } from './Step2Form'
-import { Step3Form } from './Step3Form'
-import { Step4Form } from './Step4Form'
+import { useRegisterFormStore } from "@/store/useRegisterFormStore";
+import { Step1Form } from "./Step1Form";
+import { Step2Form } from "./Step2Form";
+import { Step3Form } from "./Step3Form";
+import { Step4Form } from "./Step4Form";
 
-type FormStep = 1 | 2 | 3 | 4
+type FormStep = 1 | 2 | 3 | 4;
 
 interface RegistrationFormContainerProps {
-  onComplete?: () => void
+  onComplete?: () => void;
 }
 
-export function RegistrationFormContainer({ onComplete }: RegistrationFormContainerProps) {
-  const [currentStep, setCurrentStep] = useState<FormStep>(1)
-  const { form } = useRegisterFormStore()
+export function RegistrationFormContainer({
+  onComplete,
+}: RegistrationFormContainerProps) {
+  const [currentStep, setCurrentStep] = useState<FormStep>(1);
+  const { form } = useRegisterFormStore();
 
   const handleNext = () => {
     if (currentStep < 4) {
-      setCurrentStep((prev) => (prev + 1) as FormStep)
-      window.scrollTo(0, 0)
+      setCurrentStep((prev) => (prev + 1) as FormStep);
+      window.scrollTo(0, 0);
     } else {
       // Form is complete
-      console.log('[v0] Form submission complete:', form)
-      onComplete?.()
+      console.log("[v0] Form submission complete:", form);
+      onComplete?.();
     }
-  }
+  };
 
   const handlePrevious = () => {
     if (currentStep > 1) {
-      setCurrentStep((prev) => (prev - 1) as FormStep)
-      window.scrollTo(0, 0)
+      setCurrentStep((prev) => (prev - 1) as FormStep);
+      window.scrollTo(0, 0);
     }
-  }
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="hide-scrollbar bg-linear-to-b from-white to-gray-50 rounded-l-3xl ">
       {/* Progress Bar */}
       {/* <div className="bg-white border-b">
         <div className="max-w-4xl mx-auto px-4 py-6">
@@ -75,14 +77,20 @@ export function RegistrationFormContainer({ onComplete }: RegistrationFormContai
       </div> */}
 
       {/* Form Container */}
-      <div className="max-w-4xl mx-auto px-4 ">
-        <div className="bg-white rounded-lg shadow-sm p-8">
+      <div className="px-4 my-10 ">
+        <div className="bg-white rounded-l-lg shadow-sm p-8 mx-auto">
           {currentStep === 1 && <Step1Form onNext={handleNext} />}
-          {currentStep === 2 && <Step2Form onNext={handleNext} onPrevious={handlePrevious} />}
-          {currentStep === 3 && <Step3Form onNext={handleNext} onPrevious={handlePrevious} />}
-          {currentStep === 4 && <Step4Form onNext={handleNext} onPrevious={handlePrevious} />}
+          {currentStep === 2 && (
+            <Step2Form onNext={handleNext} onPrevious={handlePrevious} />
+          )}
+          {currentStep === 3 && (
+            <Step3Form onNext={handleNext} onPrevious={handlePrevious} />
+          )}
+          {currentStep === 4 && (
+            <Step4Form onNext={handleNext} onPrevious={handlePrevious} />
+          )}
         </div>
       </div>
     </div>
-  )
+  );
 }
