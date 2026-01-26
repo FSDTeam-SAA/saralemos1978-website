@@ -49,9 +49,8 @@ const Registration = () => {
   }
 
   return (
-    <div>
+    <div className='hide-scrollbar'>
       <RegistrationFormContainer onComplete={handleFormComplete} />
-
     </div>
   )
 }
