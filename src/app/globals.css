@@ -119,4 +119,20 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+.hide-scrollbar {
+  overflow: auto !important;          /* or scroll */
+  scrollbar-width: none !important;   /* Firefox */
+  -ms-overflow-style: none !important;/* IE & Edge */
+  scrollbar-width: 0px !important;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none !important;           /* Chrome, Safari */
 }
