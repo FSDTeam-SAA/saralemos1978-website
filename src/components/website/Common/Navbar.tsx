@@ -7,11 +7,15 @@ import { Menu, X } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const {data:session} = useSession();
   const pathname = usePathname();
+
+  const isLoggedIn = session?.user ? true : false;
 
   // Detect scroll position
   useEffect(() => {
@@ -26,11 +30,9 @@ export default function Navbar() {
   const menuItems = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/showcase", label: "Showcase" },
-    { href: "/pricing", label: "Pricing" },
-    { href: "/contact", label: "Contact" },
+ 
   ];
-
+ console.log('iis lgon',isLoggedIn)
   return (
     <nav
       className={`sticky top-0 z-50 transition-all duration-300 backdrop-blur-md ${
@@ -76,24 +78,37 @@ export default function Navbar() {
         </div>
 
         {/* ================= Auth Buttons ================= */}
-        <div className="flex items-center space-x-4 gap-2">
-          <Link href="/sign-up">
-            <Button
-              variant="outline"
-              className=" bg-white rounded-4xl font-medium transition-all duration-300 text-[#904ED4] border border-[#904ED4] cursor-pointer w-40 h-12 "
-            >
-              Sign Up
-            </Button>
-          </Link>
-          <Link href="/login">
-            <Button
-              variant="outline"
-              className=" bg-[#904ED4] rounded-4xl font-medium transition-all duration-300 text-white border border-[#904ED4] cursor-pointer w-40 h-12 "
-            >
-              Login 
-            </Button>
-          </Link>
-        </div>
+<div className="flex items-center gap-2">
+  {isLoggedIn ? (
+    <Link href="https://sara-lemos-client-dashboard.vercel.app/">
+      <Button
+        variant="outline"
+        className="bg-white rounded-4xl font-medium transition-all duration-300 text-[#904ED4] border border-[#904ED4] cursor-pointer w-40 h-12"
+      >
+        Dashboard
+      </Button>
+    </Link>
+  ) : (
+    <>
+      <Link href="/sign-up">
+        <Button
+          variant="outline"
+          className="bg-white rounded-4xl font-medium transition-all duration-300 text-[#904ED4] border border-[#904ED4] cursor-pointer w-40 h-12"
+        >
+          Sign Up
+        </Button>
+      </Link>
+
+      <Link href="/login">
+        <Button
+          className="bg-[#904ED4] rounded-4xl font-medium transition-all duration-300 text-white border border-[#904ED4] cursor-pointer w-40 h-12"
+        >
+          Login
+        </Button>
+      </Link>
+    </>
+  )}
+</div>
 
         {/* ================= Mobile Menu ================= */}
         <div className="md:hidden">
@@ -134,22 +149,37 @@ export default function Navbar() {
                 })}
 
                 {/* Mobile Auth Buttons */}
-                <div className="flex flex-col gap-4 mt-8 px-4">
-                  <Link href="/signup" onClick={() => setOpen(false)}>
-                    <Button
-                      variant="outline"
-                      className="w-full text-[#904ED4] border-[#904ED4]"
-                    >
-                      Sign Up
-                    </Button>
-                  </Link>
+    {isLoggedIn ? (
+  <div className="flex flex-col gap-4 mt-8 px-4">
+    <Link href="https://sara-lemos-client-dashboard.vercel.app/" onClick={() => setOpen(false)}>
+      <Button
+        variant="outline"
+        className="w-full text-[#904ED4] border-[#904ED4]"
+      >
+        Dashboard
+      </Button>
+    </Link>
+  </div>
+) : (
+  <div className="flex flex-col gap-4 mt-8 px-4">
+    <Link href="/signup" onClick={() => setOpen(false)}>
+      <Button
+        variant="outline"
+        className="w-full text-[#904ED4] border-[#904ED4]"
+      >
+        Sign Up
+      </Button>
+    </Link>
 
-                  <Link href="/login" onClick={() => setOpen(false)}>
-                    <Button className="w-full bg-[#904ED4] text-white">
-                      Login
-                    </Button>
-                  </Link>
-                </div>
+    <Link href="/login" onClick={() => setOpen(false)}>
+      <Button className="w-full bg-[#904ED4] text-white">
+        Login
+      </Button>
+    </Link>
+  </div>
+)}
+
+               
               </nav>
             </SheetContent>
           </Sheet>
