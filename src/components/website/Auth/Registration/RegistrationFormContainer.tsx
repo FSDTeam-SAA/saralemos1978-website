@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { X } from "lucide-react";
 
 import { useRegisterFormStore } from "@/store/useRegisterFormStore";
 import { Step1Form } from "./Step1Form";
@@ -12,10 +13,14 @@ type FormStep = 1 | 2 | 3 | 4;
 
 interface RegistrationFormContainerProps {
   onComplete?: () => void;
+  onClose?: () => void;
+  isLoading?: boolean;
 }
 
 export function RegistrationFormContainer({
   onComplete,
+  onClose,
+  isLoading = false,
 }: RegistrationFormContainerProps) {
   const [currentStep, setCurrentStep] = useState<FormStep>(1);
   const { form } = useRegisterFormStore();
@@ -39,7 +44,18 @@ export function RegistrationFormContainer({
   };
 
   return (
-    <div className="hide-scrollbar bg-linear-to-b from-white to-gray-50 rounded-l-3xl ">
+    <div className="relative hide-scrollbar bg-linear-to-b from-white to-gray-50 rounded-l-3xl ">
+      {/* Close Button */}
+      {onClose && (
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer"
+          aria-label="Close"
+        >
+          <X className="w-5 h-5 text-gray-600" />
+        </button>
+      )}
+      
       {/* Progress Bar */}
       {/* <div className="bg-white border-b">
         <div className="max-w-4xl mx-auto px-4 py-6">
@@ -87,7 +103,7 @@ export function RegistrationFormContainer({
             <Step3Form onNext={handleNext} onPrevious={handlePrevious} />
           )}
           {currentStep === 4 && (
-            <Step4Form onNext={handleNext} onPrevious={handlePrevious} />
+            <Step4Form onNext={handleNext} onPrevious={handlePrevious} isLoading={isLoading} />
           )}
         </div>
       </div>

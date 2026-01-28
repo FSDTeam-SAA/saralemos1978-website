@@ -14,8 +14,8 @@ const Footer = () => {
             <Image
               src={"/images/logo.svg"}
               alt="logo"
-              width={40}
-              height={40}
+              width={140}
+              height={140}
               className=" object-cover"
             />
 

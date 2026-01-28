@@ -3,7 +3,7 @@ import React from "react";
 
 const AboutBrokerage = () => {
   return (
-    <section
+    <section id="showcase"
       className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50"
       aria-labelledby="brokerage-heading"
     >

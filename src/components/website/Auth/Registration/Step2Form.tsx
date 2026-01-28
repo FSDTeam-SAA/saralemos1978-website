@@ -82,7 +82,7 @@ export function Step2Form({ onNext, onPrevious }: Step2FormProps) {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold text-emerald-600 text-center">Online Presence & Branding</h1>
+          <h1 className="text-3xl font-bold text-[#65A30D] text-center">Online Presence & Branding</h1>
           <p className="text-center text-gray-600 mt-2">Set up your digital presence and branding</p>
         </div>
 
@@ -219,7 +219,7 @@ export function Step2Form({ onNext, onPrevious }: Step2FormProps) {
                 className="hidden"
                 id="company-logo"
               />
-              <label htmlFor="company-logo" className="block border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-emerald-600 transition">
+              <label htmlFor="company-logo" className="block border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-[#65A30D] transition">
                 {logoPreview ? (
                   <img src={logoPreview || "/placeholder.svg"} alt="Logo" className="w-32 h-32 object-contain mx-auto rounded" />
                 ) : (
@@ -237,10 +237,10 @@ export function Step2Form({ onNext, onPrevious }: Step2FormProps) {
 
         {/* Navigation Buttons */}
         <div className="flex gap-4 justify-between pt-6">
-          <Button type="button" variant="outline" className="border-emerald-600 text-emerald-600 bg-transparent" onClick={onPrevious}>
+          <Button type="button" variant="outline" className="border-[#65A30D] text-[#65A30D] bg-transparent cursor-pointer" onClick={onPrevious}>
             Previous
           </Button>
-          <Button type="submit" className="bg-emerald-600 hover:bg-emerald-700">
+          <Button type="submit" className="bg-[#65A30D] hover:bg-[#65A30D] cursor-pointer">
             Next
           </Button>
         </div>
