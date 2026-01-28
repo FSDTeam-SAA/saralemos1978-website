@@ -3,11 +3,14 @@ import { RegistrationFormContainer } from "@/components/website/Auth/Registratio
 import { useRegister } from "@/lib/hooks/useRegister";
 import { useRegisterFormStore } from "@/store/useRegisterFormStore";
 import { buildFormData } from "@/utils/buildFormData";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { toast } from "sonner";
 
 const RegistrationPage = () => {
   const { form } = useRegisterFormStore();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const router = useRouter();
 
   const { mutate, isPending, isSuccess, isError } = useRegister();
 
@@ -17,12 +20,18 @@ const RegistrationPage = () => {
     mutate(formData, {
       onSuccess: (data) => {
         setIsSubmitted(true);
-        console.log("Registration success:", data);
+
+        toast.success( data.message||"Registration successful!");
       },
       onError: (error) => {
-        console.error("Registration failed:", error);
+
+        toast.error(error.message || "Registration failed. Please try again.");
       },
     });
+  };
+
+  const handleClose = () => {
+    router.push("/");
   };
 
   if (isSubmitted) {
@@ -74,7 +83,7 @@ const RegistrationPage = () => {
         }}
       />
       <div className=" z-50 overflow-y-scroll max-h-screen ">
-        <RegistrationFormContainer onComplete={handleFormComplete} />
+        <RegistrationFormContainer onComplete={handleFormComplete} onClose={handleClose} isLoading={isPending} />
       </div>
     </div>
   );
