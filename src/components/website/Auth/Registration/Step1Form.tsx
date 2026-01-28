@@ -94,7 +94,7 @@ export function Step1Form({ onNext }: Step1FormProps) {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 ">
           <div>
-            <h1 className="text-3xl font-bold text-emerald-600 text-center">
+            <h1 className="text-3xl font-bold text-[#65A30D] text-center">
               Welcome to Hierro A Medida
             </h1>
             <p className="text-center text-gray-600 mt-2">
@@ -299,7 +299,7 @@ export function Step1Form({ onNext }: Step1FormProps) {
                 />
                 <label
                   htmlFor="profile-photo"
-                  className="block border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-emerald-600 transition"
+                  className="block border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-[#65A30D] transition"
                 >
                   {profilePreview ? (
                     <img
@@ -324,18 +324,17 @@ export function Step1Form({ onNext }: Step1FormProps) {
             <FormMessage />
           </FormItem>
 
-          {/* Navigation Buttons */}
           <div className="flex gap-4 justify-end pt-6">
             <Button
               variant="outline"
-              className="border-emerald-600 text-emerald-600 bg-transparent"
+              className="border-[#65A30D] text-[#65A30D] bg-transparent cursor-pointer"
               disabled
             >
               Previous
             </Button>
             <Button
               type="submit"
-              className="bg-emerald-600 hover:bg-emerald-700"
+              className="bg-[#65A30D] hover:bg-[#65A30D] cursor-pointer"
             >
               Next
             </Button>

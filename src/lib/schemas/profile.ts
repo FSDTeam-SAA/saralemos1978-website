@@ -5,11 +5,11 @@ export const step1Schema = z.object({
   firstName: z.string().min(2, 'First name must be at least 2 characters'),
   lastName: z.string().min(2, 'Last name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email'),
-  password: z.string().min(8, 'Password must be at least 8 characters'),
+  password: z.string().min(6, 'Password must be at least 6 characters'),
   jobTitle: z.string().min(2, 'Job title is required'),
   phoneNumber: z.string().regex(/^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/, 'Please enter a valid phone number'),
   companyName: z.string().min(2, 'Company name is required'),
-  industryExperience: z.string().min(10, 'Please describe your experience'),
+  industryExperience: z.string().min(1, 'Please describe your experience'),
   languagesSpoken: z.array(z.string()).min(1, 'Select at least one language'),
   profilePhoto: z.instanceof(File).nullable().optional(),
 })
@@ -31,13 +31,13 @@ export const step2Schema = z.object({
 export const step3Schema = z.object({
   productCategories: z.array(z.string()).min(1, 'Select at least one product category'),
   averagePriceRange: z.string().min(1, 'Select a price range'),
-  primaryRegionsServed: z.string().min(10, 'Please describe your primary regions'),
+  primaryRegionsServed: z.string().min(1, 'Please describe your primary regions'),
   salesChannels: z.array(z.string()).min(1, 'Select at least one sales channel'),
 })
 
 // Step 4: QR Portfolio Page
 export const step4Schema = z.object({
-  customHeadline: z.string().min(10, 'Please provide a headline').max(200, 'Headline must be less than 200 characters'),
+  customHeadline: z.string().min(1, 'Please provide a headline').max(200, 'Headline must be less than 200 characters'),
   postingFrequency: z.string().min(1, 'Select your posting frequency'),
   bannerImage: z.instanceof(File).nullable().optional(),
 })

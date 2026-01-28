@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React from "react";
-import { Check, Star, Zap, Shield, TrendingUp, Users } from "lucide-react";
+import { Check } from "lucide-react";
 import Subscriptioncard from "@/components/ReusableSection/Subscriptioncard";
 import { useQuery } from "@tanstack/react-query";
 import { getSubscription } from "@/lib/api";
@@ -100,9 +100,33 @@ const Subscription = () => {
     cta: plan.price === maxPrice ? "Choose Professional" : "Get Started",
     period: " month",
   }));
+const subscriptionPlan: SubscriptionPlan = {
+  _id: "64a7b1c2e8f9d2c3e5f6a7b2",
+  name: "Enterprise",
+  price: 0, // Custom pricing - displayed as "Custom"
+  billingCycle: "contact us",
+  isActive: true,
+  features: [
+    "Unlimited listings",
+    "White-label solution",
+    "Dedicated account manager",
+    "Custom AI training",
+    "Custom Reports",
+    "Advanced security features",
+    "SLA guarantee"
+  ],
+  createdAt: "2023-07-01T10:00:00.000Z",
+  updatedAt: "2023-12-15T14:30:00.000Z",
+  __v: 1,
+  popular: false,
+  tagline: "For large organizations",
+  cta: "Contact Sales",
+  period: "month",  
+};
+
 
   return (
-    <div className="font-sans bg-gray-50 py-20 px-4 md:px-8">
+    <div className="font-sans bg-gray-50 py-20 px-4 md:px-8" id="pricing">
       <div className="container  mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16 ">
@@ -129,6 +153,113 @@ const Subscription = () => {
               />
             </div>
           ))}
+          <div
+                className={`
+                relative h-full transition-all duration-300
+                ${subscriptionPlan ? "lg:scale-105 lg:-translate-y-4 " : ""}
+              `}
+              >
+                {/* Popular Badge */}
+                {/* {subscriptionPlan && (
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="bg-[#B5ED5B] from-blue-600 to-purple-600 text-[#343A40] text-sm font-semibold py-2 px-6 rounded-full shadow-lg whitespace-nowrap">
+                      Most Popular
+                    </div>
+                  </div>
+                )} */}
+          
+                {/* Pricing Card */}
+                <div
+                  className={`
+                  h-full rounded-2xl border-2 overflow-hidden flex flex-col
+                  ${
+                    subscriptionPlan
+                      ? "bg-[#5A50F5] border-blue-300 shadow-2xl"
+                      : "bg-white border-gray-200 shadow-lg"
+                  }
+                `}
+                >
+                  {/* Card Header */}
+                  <div
+                    className={`
+                    p-8 text-center
+                    ${subscriptionPlan ? "bg-[#5A50F5]" : "bg-gray-50"}
+                  `}
+                  >
+                    <h3 className={`text-2xl leading-[120%] font-semibold mb-1 ${subscriptionPlan ? 'text-white ':'text-[#3D483F]'}`}>{subscriptionPlan.name}</h3>
+                    <p className={`text-base leading-[150%] font-normal mb-5 ${subscriptionPlan  ? 'text-white':'text-[#3D483F]'}`}>{subscriptionPlan.tagline}</p>
+          
+                    {/* Price Section */}
+                    <div className="mb-6">
+                      <div className="flex flex-col  text-center items-center justify-center">
+                        <span
+                          className={`
+                          text-2xl md:text-3xl font-bold
+                          ${subscriptionPlan ? "text-[#B5ED5B] " : "text-[#5B4FFF]"}
+                        `}
+                        >
+                          Customs
+                        </span>
+                        { subscriptionPlan && (
+                          <span className={`${subscriptionPlan ? "text-white":"text-[#2C2668]"} ml-2 text-lg`}>{subscriptionPlan.period}</span>
+                        )}
+                      </div>
+                    
+                    </div>
+          
+                    {/* CTA Button */}
+                    <button
+                      onClick={() => handleSubscribe?.(subscriptionPlan)}
+                      disabled={isLoading}
+                      className={`
+                      w-full py-4 rounded-4xl font-semibold text-lg transition-all duration-300
+                      ${isLoading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
+                      ${
+                        subscriptionPlan
+                          ? "bg-[#B5ED5B] text-black hover:opacity-90"
+                          : "bg-[#5A50F5] text-white hover:bg-gray-800"
+                      }
+                    `}
+                    >
+                    Contact Sales
+                    </button>
+                  </div>
+          
+                  {/* Features List */}
+                  <div className="p-8 flex-grow">
+                    <div className="space-y-4">
+                      {subscriptionPlan.features.map((feature, index) => (
+                        <div key={index} className="flex items-start">
+                          <div
+                            className={`
+                            flex-shrink-0 w-6 h-6  flex items-center justify-center mr-3 mt-0.5
+                          
+                          `}
+                          >
+                            <Check className={`    ${
+                              subscriptionPlan ? "text-[#B5ED5B]" : "text-[#5B4FFF]"
+                            }`}/>
+                          </div>
+                          <span
+                            className={`text-gray-700    ${
+                              subscriptionPlan ? "text-white" : "text-black"
+                            }`}
+                          >
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+          
+                  {/* Divider for non-subscription cards */}
+                  {!subscriptionPlan && (
+                    <div className="px-8 pb-8">
+                      <div className="border-t border-gray-200"></div>
+                    </div>
+                  )}
+                </div>
+              </div> 
         </div>
 
         {/* Footer Note */}
