@@ -111,7 +111,7 @@ const AboutFeatured = () => {
         {/* CTA */}
         <div className="flex justify-center">
           <a
-            href="/yachts"
+            href="#"
             className="inline-flex items-center justify-center rounded-lg bg-orange-500 px-8 py-3 font-semibold text-white hover:bg-orange-600 transition"
             aria-label="View all yacht listings"
           >
