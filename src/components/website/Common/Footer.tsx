@@ -33,10 +33,10 @@ const Footer = () => {
             </h2>
             <ul className="space-y-3">
               {[
-                { name: "Cloud Mutual", href: "#" },
-                { name: "Infoline", href: "#" },
-                { name: "Pricing", href: "#" },
-                { name: "Start Free Trial Report", href: "#" },
+                { name: "Home", href: "/" },
+                { name: "Features", href: "/" },
+                { name: "Pricing", href: "#pricing" },
+                { name: "", href: "#" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -84,8 +84,8 @@ const Footer = () => {
             </h2>
             <ul className="space-y-3">
               {[
-                { name: "Privacy Policy", href: "#" },
-                { name: "Terms & Conditions", href: "#" },
+                { name: "Privacy Policy", href: "/privacy-policy" },
+                { name: "Terms & Conditions", href: "/terms-conditions" },
                 { name: "Security", href: "#" },
               ].map((link) => (
                 <li key={link.name}>
@@ -105,8 +105,8 @@ const Footer = () => {
           {/* Newsletter Subscription & Social Links */}
           <div className="space-y-6">
             <div>
-              <p className="text-white/80 text-sm mb-4 italic">
-                Submit your applets here
+              <p className="text-white/80 text-sm mb-4 ">
+               Subscribe for updates & news
               </p>
               <form className="flex flex-col sm:flex-row gap-2">
                 <input
@@ -117,7 +117,7 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300 whitespace-nowrap"
+                  className="px-6 py-3 bg-[#5A50F5] hover:bg-blue-800  cursor-pointer  text-white font-semibold rounded-lg transition-colors duration-300 whitespace-nowrap"
                   aria-label="Subscribe to newsletter"
                 >
                   Subscribe
@@ -130,21 +130,21 @@ const Footer = () => {
               <div className="flex space-x-4">
                 <Link
                   href="#"
-                  className="bg-blue-600 p-3 rounded-2xl text-white hover:bg-blue-700 transition-colors duration-300"
+                  className="bg-[#5A50F5] p-3 rounded-2xl text-white hover:bg-blue-700 transition-colors duration-300"
                   aria-label="Follow us on Facebook"
                 >
                   <Facebook className="w-7 h-7" />
                 </Link>
                 <Link
                   href="#"
-                  className="bg-blue-700 p-3 rounded-2xl text-white hover:bg-blue-800 transition-colors duration-300"
+                  className="bg-[#5A50F5] p-3 rounded-2xl text-white hover:bg-blue-800 transition-colors duration-300"
                   aria-label="Follow us on LinkedIn"
                 >
                   <Linkedin className="w-7 h-7" />
                 </Link>
                 <Link
                   href="#"
-                  className="bg-pink-600 p-3 rounded-2xl text-white hover:bg-pink-700 transition-colors duration-300"
+                  className="bg-[#5A50F5] p-3 rounded-2xl text-white hover:bg-[#5A50F5] transition-colors duration-300"
                   aria-label="Follow us on Instagram"
                 >
                   <Instagram className="w-7 h-7" />

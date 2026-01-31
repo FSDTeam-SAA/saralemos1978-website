@@ -89,15 +89,15 @@ const Subscription = () => {
   // const sortedPlans = [...plans].sort((a, b) => a.price - b.price);
 
   // Decorate plans with UI-specific flags
-  const decoratedPlans: SubscriptionPlan[] = plans.map((plan) => ({
+  const decoratedPlans: SubscriptionPlan[] = plans.map((plan,index) => ({
     ...plan,
-    popular: plan.price === maxPrice && plan.price > 0,
+     popular: index === 1,
     featured: plan.price === maxPrice && plan.price > 0,
     tagline:
       plan.price === maxPrice
         ? "Our most comprehensive plan"
         : "Great for getting started",
-    cta: plan.price === maxPrice ? "Choose Professional" : "Get Started",
+    cta: plan.price === maxPrice ? "Get Started" : "Get Started",
     period: " month",
   }));
 const subscriptionPlan: SubscriptionPlan = {
@@ -130,7 +130,7 @@ const subscriptionPlan: SubscriptionPlan = {
       <div className="container  mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16 ">
-          <span className="bg-[#EAE9FF] py-2 px-4 rounded-full mb-1.5">
+          <span className="bg-[#EAE9FF] py-2 px-6 rounded-full mb-1.5">
             Pricing
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-[#2E266D] mb-2">
@@ -156,7 +156,7 @@ const subscriptionPlan: SubscriptionPlan = {
           <div
                 className={`
                 relative h-full transition-all duration-300
-                ${subscriptionPlan ? "lg:scale-105 lg:-translate-y-4 " : ""}
+                ${subscriptionPlan ? "" : "lg:scale-105 lg:-translate-y-4 "}
               `}
               >
                 {/* Popular Badge */}
@@ -174,8 +174,8 @@ const subscriptionPlan: SubscriptionPlan = {
                   h-full rounded-2xl border-2 overflow-hidden flex flex-col
                   ${
                     subscriptionPlan
-                      ? "bg-[#5A50F5] border-blue-300 shadow-2xl"
-                      : "bg-white border-gray-200 shadow-lg"
+                      ? " bg-white border-gray-200 shadow-lg"
+                      : "bg-[#5A50F5] border-blue-300 shadow-2xl"
                   }
                 `}
                 >
@@ -183,11 +183,11 @@ const subscriptionPlan: SubscriptionPlan = {
                   <div
                     className={`
                     p-8 text-center
-                    ${subscriptionPlan ? "bg-[#5A50F5]" : "bg-gray-50"}
+                    ${subscriptionPlan ? "bg-gray-50" : " bg-[#5A50F5]"}
                   `}
                   >
-                    <h3 className={`text-2xl leading-[120%] font-semibold mb-1 ${subscriptionPlan ? 'text-white ':'text-[#3D483F]'}`}>{subscriptionPlan.name}</h3>
-                    <p className={`text-base leading-[150%] font-normal mb-5 ${subscriptionPlan  ? 'text-white':'text-[#3D483F]'}`}>{subscriptionPlan.tagline}</p>
+                    <h3 className={`text-2xl leading-[120%] font-semibold mb-1 ${subscriptionPlan ? ' text-[#3D483F]':' text-white'}`}>{subscriptionPlan.name}</h3>
+                    <p className={`text-base leading-[150%] font-normal mb-5 ${subscriptionPlan  ? ' text-[#3D483F]':'text-white'}`}>{subscriptionPlan.tagline}</p>
           
                     {/* Price Section */}
                     <div className="mb-6">
@@ -195,7 +195,7 @@ const subscriptionPlan: SubscriptionPlan = {
                         <span
                           className={`
                           text-2xl md:text-3xl font-bold
-                          ${subscriptionPlan ? "text-[#B5ED5B] " : "text-[#5B4FFF]"}
+                          ${subscriptionPlan ? "text-[#5B4FFF] " : " text-[#B5ED5B]"}
                         `}
                         >
                           Customs
@@ -216,8 +216,8 @@ const subscriptionPlan: SubscriptionPlan = {
                       ${isLoading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
                       ${
                         subscriptionPlan
-                          ? "bg-[#B5ED5B] text-black hover:opacity-90"
-                          : "bg-[#5A50F5] text-white hover:bg-gray-800"
+                          ? " bg-[#5A50F5] text-white hover:bg-gray-800"
+                          : "bg-[#B5ED5B] text-black hover:opacity-90"
                       }
                     `}
                     >
@@ -237,12 +237,12 @@ const subscriptionPlan: SubscriptionPlan = {
                           `}
                           >
                             <Check className={`    ${
-                              subscriptionPlan ? "text-[#B5ED5B]" : "text-[#5B4FFF]"
+                              subscriptionPlan ? "text-[#5B4FFF]" : " text-[#B5ED5B]"
                             }`}/>
                           </div>
                           <span
                             className={`text-gray-700    ${
-                              subscriptionPlan ? "text-white" : "text-black"
+                              subscriptionPlan ? "text-black" : "text-white"
                             }`}
                           >
                             {feature}
