@@ -101,7 +101,7 @@ const AboutBrokerage = () => {
         {/* CTA */}
         <div className="flex justify-center mt-12">
           <a
-            href="/brokerage"
+            href="#"
             className="inline-flex items-center justify-center rounded-full bg-orange-500 px-8 py-3 text-white font-semibold hover:bg-orange-600 transition"
             aria-label="Learn more about brokerage services"
           >

@@ -15,8 +15,8 @@ export default function page() {
       <HowToWork />
       <WhyChooseUs />
 
-      <Subscription />
       <Review />
+      <Subscription />
       <FAQ />
       <HaveAQuestion />
     </div>
