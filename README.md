@@ -21,9 +21,7 @@ A modern, scalable website built using **Next.js 14**, **TypeScript**, **Tailwin
 
 ## ⚙️ Setup & Installation
 
-# 1️⃣ Clone the repository
 
-git clone https://github.com/RashedulHaqueRasel1/Template-Overview-Website.git
 
 # 2️⃣ Navigate to the project
 
@@ -72,13 +70,3 @@ This project uses Husky and Lint-staged to enforce clean commits.
 npx husky add .husky/pre-commit "npm run lint"
 git add .husky/pre-commit
 
---
-
-🧑‍💻 Author
-
-Rashedul Haque Rasel
-
-Built with ❤️ using Next.js, TypeScript, and Tailwind CSS.
-
-📧 [rashedulhaquerasel1@gmail.com](rashedulhaquerasel1@gmail.com) 
-🌐 [Protfolio](https://rashedul-haque-rasel.vercel.app)
