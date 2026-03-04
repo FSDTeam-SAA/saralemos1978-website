@@ -128,7 +128,7 @@ const Subscription = () => {
   };
 
   return (
-    <div className="font-sans bg-gray-50 py-20 px-4 md:px-8" id="pricing">
+    <div  className="font-sans bg-gray-50 py-20 px-4 md:px-8" id="pricing">
       <div className="container  mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16 ">
