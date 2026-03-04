@@ -19,7 +19,7 @@ const HaveQuestion = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex flex-col gap-4 items-center bg-[#F1F5F9] py-5 rounded-2xl">
+    <div id="contact" className="flex flex-col gap-4 items-center bg-[#F1F5F9] py-5 rounded-2xl">
       <h2 className="font-bold text-3xl md:text-4xl leading-[150%] text-black text-center">
         {title} <span className="text-[#65A30D]">{span}</span>
       </h2>
