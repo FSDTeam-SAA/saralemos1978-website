@@ -83,7 +83,7 @@ export default function Navbar() {
         {/* ================= Auth Buttons ================= */}
         <div className="flex items-center gap-2">
           {isLoggedIn ? (
-            <Link href="https://sara-lemos-client-dashboard.vercel.app/">
+            <Link href="https://sara-lemos-client-dashboard-cyan.vercel.app">
               <Button
                 variant="outline"
                 className="bg-white rounded-4xl font-medium transition-all duration-300 text-[#904ED4] border border-[#904ED4] cursor-pointer w-40 h-12"
