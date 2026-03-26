@@ -153,7 +153,7 @@ export default function Navbar() {
                 {isLoggedIn ? (
                   <div className="flex flex-col gap-4 mt-8 px-4">
                     <Link
-                      href="https://sara-lemos-client-dashboard.vercel.app/"
+                      href="https://sara-lemos-client-dashboard-cyan.vercel.app/"
                       onClick={() => setOpen(false)}
                     >
                       <Button
@@ -175,7 +175,7 @@ export default function Navbar() {
                       </Button>
                     </Link>
 
-                    <Link href="/login" onClick={() => setOpen(false)}>
+                    <Link href="https://sara-lemos-client-dashboard-cyan.vercel.app/login" onClick={() => setOpen(false)}>
                       <Button className="w-full bg-[#904ED4] text-white">
                         Login
                       </Button>
