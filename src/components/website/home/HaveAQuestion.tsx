@@ -3,7 +3,7 @@ import React from "react";
 
 const HaveAQuestion = () => {
   return (
-    <section className="my-10 md:my-16">
+    <section className="my-10 md:my-16" id="contact">
       <div className="container mx-auto">
         <HaveQuestion
           title="Have a"

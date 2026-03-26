@@ -20,13 +20,14 @@ const Subscriptioncard = ({
     features = [],
     featured = false,
     popular = false,
+    allowedListings,
   } = plan;
 
   return (
     <div
       className={`
       relative h-full transition-all duration-300
-      ${featured ? "lg:scale-105 lg:-translate-y-4 " : ""}
+      ${featured ? " " : "lg:scale-105 lg:-translate-y-4"}
     `}
     >
       {/* Popular Badge */}
@@ -44,8 +45,8 @@ const Subscriptioncard = ({
         h-full rounded-2xl border-2 overflow-hidden flex flex-col
         ${
           featured
-            ? "bg-[#5A50F5] border-blue-300 shadow-2xl"
-            : "bg-white border-gray-200 shadow-lg"
+            ? "bg-white border-blue-300 shadow-2xl"
+            : " bg-[#5A50F5] border-gray-200 shadow-lg"
         }
       `}
       >
@@ -53,11 +54,12 @@ const Subscriptioncard = ({
         <div
           className={`
           p-8 text-center
-          ${featured ? "bg-[#5A50F5]" : "bg-gray-50"}
+          ${featured ? "bg-white" : "bg-[#5A50F5]"}
         `}
         >
-          <h3 className={`text-2xl leading-[120%] font-semibold mb-1 ${featured ? 'text-white ':'text-[#3D483F]'}`}>{name}</h3>
-          <p className={`text-base leading-[150%] font-normal mb-5 ${featured ? 'text-white':'text-[#3D483F]'}`}>{tagline}</p>
+          <h3 className={`text-2xl leading-[120%] font-semibold mb-1 ${featured ? ' text-[#3D483F]':'text-white'}`}>{name}</h3>
+          <p className={`text-base leading-[150%] font-normal mb-4 ${featured ? ' text-[#3D483F]':'text-white'}`}>{tagline}</p>
+
 
           {/* Price Section */}
           <div className="mb-6">
@@ -65,7 +67,7 @@ const Subscriptioncard = ({
               <span
                 className={`
                 text-2xl md:text-3xl font-bold
-                ${featured ? "text-[#B5ED5B] " : "text-[#5B4FFF]"}
+                ${featured ? "text-[#5B4FFF] " : "text-[#B5ED5B] "}
               `}
               >
                 ${price}
@@ -88,8 +90,8 @@ const Subscriptioncard = ({
             ${isLoading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
             ${
               featured
-                ? "bg-[#B5ED5B] text-black hover:opacity-90"
-                : "bg-[#5A50F5] text-white hover:bg-gray-800"
+                ? "  bg-[#5A50F5] text-white hover:bg-gray-800"
+                : "bg-[#B5ED5B] text-black hover:opacity-90"
             }
           `}
           >
@@ -100,6 +102,8 @@ const Subscriptioncard = ({
         {/* Features List */}
         <div className="p-8 flex-grow">
           <div className="space-y-4">
+          {/* <p className={`text-2xl font-bold leading-[150%]  mb-3 ${featured ? ' text-[#3D483F]':'text-white'}`}> <span className="">AllowedListings:</span>  {allowedListings}</p> */}
+
             {features.map((feature, index) => (
               <div key={index} className="flex items-start">
                 <div
@@ -109,12 +113,12 @@ const Subscriptioncard = ({
                 `}
                 >
                   <Check className={`    ${
-                    featured ? "text-[#B5ED5B]" : "text-[#5B4FFF]"
+                    featured ? "text-[#5B4FFF]" : " text-[#B5ED5B]"
                   }`}/>
                 </div>
                 <span
                   className={`text-gray-700    ${
-                    featured ? "text-white" : "text-black"
+                    featured ? "text-black" : "text-white"
                   }`}
                 >
                   {feature}

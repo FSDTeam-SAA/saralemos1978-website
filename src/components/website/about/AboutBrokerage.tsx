@@ -3,7 +3,7 @@ import React from "react";
 
 const AboutBrokerage = () => {
   return (
-    <section
+    <section id="showcase"
       className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50"
       aria-labelledby="brokerage-heading"
     >
@@ -101,7 +101,7 @@ const AboutBrokerage = () => {
         {/* CTA */}
         <div className="flex justify-center mt-12">
           <a
-            href="/brokerage"
+            href="#"
             className="inline-flex items-center justify-center rounded-full bg-orange-500 px-8 py-3 text-white font-semibold hover:bg-orange-600 transition"
             aria-label="Learn more about brokerage services"
           >

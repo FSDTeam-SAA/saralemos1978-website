@@ -1,4 +1,6 @@
+import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 
 const AboutHero = () => {
@@ -47,6 +49,13 @@ const AboutHero = () => {
                 Email Me
               </a>
             </div>
+            <div className="flex justify-center my-15">
+
+              <Image className="rounded-full w-50 h-50 object-cover"  src={'/about/martinf.png'} alt="f........."  width={200} height={200}/>
+            </div>
+            <Button className=" py-6 px-8! bg-[#E8662A]">
+              About Me
+            </Button>
           </div>
         </div>
       </div>

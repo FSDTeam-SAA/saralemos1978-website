@@ -41,9 +41,10 @@ const POSTING_FREQUENCY = [
 interface Step4FormProps {
   onNext: () => void
   onPrevious: () => void
+  isLoading?: boolean
 }
 
-export function Step4Form({ onNext, onPrevious }: Step4FormProps) {
+export function Step4Form({ onNext, onPrevious, isLoading = false }: Step4FormProps) {
   const { form: storedForm, setField } = useRegisterFormStore()
   const [bannerPreview, setBannerPreview] = useState<string | null>(null)
 
@@ -77,7 +78,7 @@ export function Step4Form({ onNext, onPrevious }: Step4FormProps) {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold text-emerald-600 text-center">QR Project Portfolio</h1>
+      <h1 className="text-3xl font-bold text-[#65A30D] text-center">QR Project Portfolio</h1>
       <p className="text-center text-gray-600 mt-2">Finalize your professional profile and digital portfolio</p>
 
     <Form {...form}>
@@ -113,7 +114,7 @@ export function Step4Form({ onNext, onPrevious }: Step4FormProps) {
                 className="hidden"
                 id="banner-image"
               />
-              <label htmlFor="banner-image" className="block border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-emerald-600 transition">
+              <label htmlFor="banner-image" className="block border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-[#65A30D] transition">
                 {bannerPreview ? (
                   <img src={bannerPreview || "/placeholder.svg"} alt="Banner" className="w-full h-40 object-cover rounded" />
                 ) : (
@@ -157,9 +158,9 @@ export function Step4Form({ onNext, onPrevious }: Step4FormProps) {
         />
 
         {/* QR Code Section */}
-        <Alert className="border-emerald-200 bg-emerald-50">
-          <AlertCircle className="h-4 w-4 text-emerald-600" />
-          <AlertDescription className="text-emerald-800">
+        <Alert className="border-[#65A30D]/30 bg-[#65A30D]/10">
+          <AlertCircle className="h-4 w-4 text-[#65A30D]" />
+          <AlertDescription className="text-[#65A30D]">
             <div className="flex items-start gap-3">
               <div>
                 <h3 className="font-semibold mb-1">✨ Your Professional QR Portfolio</h3>
@@ -172,15 +173,15 @@ export function Step4Form({ onNext, onPrevious }: Step4FormProps) {
         </Alert>
 
         {/* Info Box */}
-        <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4">
-          <h3 className="font-semibold text-emerald-900 mb-2">✨ Your Portfolio is Ready!</h3>
-          <p className="text-sm text-emerald-800 mb-4">
+        <div className="bg-[#65A30D]/10 border border-[#65A30D]/30 rounded-lg p-4">
+          <h3 className="font-semibold text-[#65A30D] mb-2">✨ Your Portfolio is Ready!</h3>
+          <p className="text-sm text-[#65A30D] mb-4">
             We&apos;ve automatically generated your digital showroom using your provided details. It will showcase your services, specialties, and contact information.
           </p>
           <Button
             type="button"
             variant="outline"
-            className="border-emerald-600 text-emerald-600 w-full hover:bg-emerald-50 bg-transparent"
+            className="border-[#65A30D] text-[#65A30D] w-full hover:bg-[#65A30D]/10 bg-transparent cursor-pointer"
             onClick={() => {
               /* Handle preview */
             }}
@@ -190,13 +191,12 @@ export function Step4Form({ onNext, onPrevious }: Step4FormProps) {
           </Button>
         </div>
 
-        {/* Navigation Buttons */}
         <div className="flex gap-4 justify-between pt-6">
-          <Button type="button" variant="outline" className="border-emerald-600 text-emerald-600 bg-transparent" onClick={onPrevious}>
+          <Button type="button" variant="outline" className="border-[#65A30D] text-[#65A30D] bg-transparent cursor-pointer disabled:cursor-not-allowed" onClick={onPrevious} disabled={isLoading}>
             Previous
           </Button>
-          <Button type="submit" className="bg-emerald-600 hover:bg-emerald-700">
-            Complete Setup
+          <Button type="submit" className="bg-[#65A30D] hover:bg-[#65A30D] disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed" disabled={isLoading}>
+            {isLoading ? "Submitting..." : "Complete Setup"}
           </Button>
         </div>
       </form>

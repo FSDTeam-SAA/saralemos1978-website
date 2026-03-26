@@ -25,17 +25,19 @@ import { useRegisterFormStore } from '@/store/useRegisterFormStore'
 import { Step3FormData, step3Schema } from '@/lib/schemas/profile'
 
 const PRODUCT_CATEGORIES = [
-  { id: 'gates', label: 'Gates (Portones)' },
-  { id: 'railings', label: 'Railings (Barandas)' },
-  { id: 'stairs', label: 'Stairs (Escaleras)' },
-  { id: 'window-grills', label: 'Window Grills (Rejas)' },
-  { id: 'pergolas', label: 'Pergolas' },
-  { id: 'furniture', label: 'Custom Furniture (Muebles)' },
-  { id: 'structures', label: 'Structural Steel' },
-  { id: 'decorative', label: 'Decorative Ironwork' },
-  { id: 'fences', label: 'Fences (Cercos)' },
-  { id: 'doors', label: 'Iron Doors' },
-  { id: 'other', label: 'Other Custom Work' },
+  { id: 'gates', label: 'Sail Yachts' },
+  { id: 'railings', label: 'Motor Yachts' },
+  { id: 'stairs', label: 'Sail Catamarans' },
+  { id: 'window-grills', label: 'Motor Catamarans)' },
+  { id: 'pergolas', label: 'Trimarans' },
+  { id: 'furniture', label: 'Motor Catamarans' },
+  { id: 'structures', label: 'Trawlers' },
+  { id: 'decorative', label: 'Express Cruisers' },
+  { id: 'fences', label: 'Sport Fishing Yachts' },
+  { id: 'doors', label: 'Houseboats' },
+  { id: 'pleasure-boats', label: 'Pleasure Boats (Under 24m)' },
+  { id: 'commercial-vessels', label: 'Commercial Vessels' },
+  { id: 'personal-watercraft', label: 'Personal Watercraft (PWC)' },
 ]
 
 const PRICE_RANGES = [
@@ -47,16 +49,16 @@ const PRICE_RANGES = [
 ]
 
 const SALES_CHANNELS = [
-  { id: 'website', label: 'Official Website' },
-  { id: 'instagram', label: 'Instagram' },
-  { id: 'facebook', label: 'Facebook' },
-  { id: 'whatsapp', label: 'WhatsApp Business' },
-  { id: 'google', label: 'Google My Business' },
-  { id: 'archiproducts', label: 'Archiproducts' },
-  { id: 'pinterest', label: 'Pinterest' },
-  { id: 'local-showroom', label: 'Local Showroom' },
-  { id: 'word-of-mouth', label: 'Referrals / Word of Mouth' },
-  { id: 'other', label: 'Other' },
+  { id: 'YachtWorld', label: 'YachtWorld' },
+  { id: 'Boat-Trader', label: 'Boat Trader' },
+  { id: 'Boats-com', label: 'Boats.com' },
+  { id: 'YachtCloser', label: 'vYachtCloser' },
+  { id: 'SuperYacht-com', label: 'SuperYacht.com' },
+  { id: 'Trawler-Yachts', label: 'Trawler-Yachts' },
+  { id: 'IYBA', label: 'IYBA' },
+  { id: 'Yachtbroker.net', label: 'Yachtbroker.net' },
+  { id: 'Yacht-Sales-America', label: 'Yacht-Sales-America' },
+  { id: 'Other', label: 'Other' },
 ]
 
 interface Step3FormProps {
@@ -90,8 +92,8 @@ export function Step3Form({ onNext, onPrevious }: Step3FormProps) {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold text-emerald-600 text-center">Work Details</h1>
-          <p className="text-center text-gray-600 mt-2">Tell us about your metalwork specialities and operations</p>
+          <h1 className="text-3xl font-bold text-[#65A30D] text-center">Listing Preferences</h1>
+          <p className="text-center text-gray-600 mt-2">Let'S Set up your to Create amazing yacnt marketing</p>
         </div>
 
         {/* Product Categories */}
@@ -100,7 +102,7 @@ export function Step3Form({ onNext, onPrevious }: Step3FormProps) {
           name="productCategories"
           render={() => (
             <FormItem>
-              <FormLabel>Product Categories You Specialize In *</FormLabel>
+              <FormLabel>Yacht Types Typically Handled *</FormLabel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {PRODUCT_CATEGORIES.map((category) => (
                   <FormField
@@ -138,10 +140,10 @@ export function Step3Form({ onNext, onPrevious }: Step3FormProps) {
           name="averagePriceRange"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Typical Project Budget Range *</FormLabel>
+              <FormLabel>Average Price Range of Listings</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger>
+                  <SelectTrigger className='w-full'>
                     <SelectValue placeholder="Select your typical project budget" />
                   </SelectTrigger>
                 </FormControl>
@@ -184,7 +186,7 @@ export function Step3Form({ onNext, onPrevious }: Step3FormProps) {
           name="salesChannels"
           render={() => (
             <FormItem>
-              <FormLabel>Active Sales & Marketing Channels *</FormLabel>
+              <FormLabel>Listing Platforms Used</FormLabel>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {SALES_CHANNELS.map((channel) => (
                   <FormField
@@ -218,10 +220,10 @@ export function Step3Form({ onNext, onPrevious }: Step3FormProps) {
 
         {/* Navigation Buttons */}
         <div className="flex gap-4 justify-between pt-6">
-          <Button type="button" variant="outline" className="border-emerald-600 text-emerald-600 bg-transparent" onClick={onPrevious}>
+          <Button type="button" variant="outline" className="border-[#65A30D] text-[#65A30D] bg-transparent cursor-pointer" onClick={onPrevious}>
             Previous
           </Button>
-          <Button type="submit" className="bg-emerald-600 hover:bg-emerald-700">
+          <Button type="submit" className="bg-[#65A30D] hover:bg-[#65A30D] cursor-pointer">
             Next
           </Button>
         </div>

@@ -54,7 +54,9 @@ const AboutWhyWorkUs = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 ">
           {reasons.map((reason, index) => (
             <React.Fragment key={index}>
-              <article className="text-center">
+              <article className="text-center flex items-center justify-center gap-2">
+                <div>
+
                 <span className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full border-2 border-orange-500 text-lg font-bold text-orange-500">
                   {index + 1}
                 </span>
@@ -66,8 +68,7 @@ const AboutWhyWorkUs = () => {
                 <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
                   {reason.description}
                 </p>
-              </article>
-
+                </div>
               {/* Arrow Divider (desktop only) */}
               {index < reasons.length - 1 && (
                 <div
@@ -77,6 +78,8 @@ const AboutWhyWorkUs = () => {
                   <MoveRight className="h-5 w-10 text-orange-500" />
                 </div>
               )}
+              </article>
+
             </React.Fragment>
           ))}
         </div>

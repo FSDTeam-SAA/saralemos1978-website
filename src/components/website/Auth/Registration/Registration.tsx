@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
 import { RegistrationFormContainer } from './RegistrationFormContainer'
 import { useRegisterFormStore } from '@/store/useRegisterFormStore'
+import { useRouter } from 'next/navigation'
 
 const Registration = () => {
     const { form } = useRegisterFormStore()
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const router = useRouter()
 
   const handleFormComplete = () => {
     setIsSubmitted(true)
     console.log('[v0] Complete form data:', form)
     // Here you would typically send the data to your backend
+  }
+
+  const handleClose = () => {
+    router.push('/')
   }
 
   if (isSubmitted) {
@@ -50,7 +56,7 @@ const Registration = () => {
 
   return (
     <div className='hide-scrollbar'>
-      <RegistrationFormContainer onComplete={handleFormComplete} />
+      <RegistrationFormContainer onComplete={handleFormComplete} onClose={handleClose} />
     </div>
   )
 }

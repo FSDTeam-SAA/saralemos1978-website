@@ -52,12 +52,16 @@ src/
 
 ## ⚙️ Setup & Installation
 
+<<<<<<< HEAD
 ### 1. Clone the repository
 
 ```bash
 git clone https://github.com/RashedulHaqueRasel1/saralemos1978-website.git
 cd saralemos1978-website
 ```
+=======
+
+>>>>>>> 92e309f8185c8362e313dd88c63b37d3819349a5
 
 ### 2. Install dependencies
 
@@ -95,10 +99,27 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 🧑‍💻 Author
+🧠 Strong validation using Zod
 
-**Rashedul Haque Rasel**  
-Built with ❤️ using Next.js, TypeScript, and Tailwind CSS.
+💬 Beautiful toasts with Sonner
 
-- 📧 [rashedulhaquerasel1@gmail.com](mailto:rashedulhaquerasel1@gmail.com)
-- 🌐 [Portfolio](https://rashedul-haque-rasel.vercel.app)
+🧰 Modular, scalable folder structure
+
+🔒 Husky pre-commit hook + Commitlint setup
+
+📦 Scripts
+Command Description
+npm run dev Start development server
+npm run build Create production build
+npm run start Run production build
+npm run lint Run ESLint
+npm run format Prettify code (if configured)
+
+🧪 Husky Setup (Pre-commit)
+This project uses Husky and Lint-staged to enforce clean commits.
+
+# Add a new hook
+
+npx husky add .husky/pre-commit "npm run lint"
+git add .husky/pre-commit
+
