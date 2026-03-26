@@ -85,7 +85,7 @@ export default function Navbar() {
               Sign Up
             </Button>
           </Link>
-          <Link href="https://sara-lemos-client-dashboard.vercel.app/login">
+          <Link href="https://sara-lemos-client-dashboard-cyan.vercel.app/login">
             <Button
               variant="outline"
               className=" bg-[#904ED4] rounded-4xl font-medium transition-all duration-300 text-white border border-[#904ED4] cursor-pointer w-40 h-12 "
@@ -144,7 +144,7 @@ export default function Navbar() {
                     </Button>
                   </Link>
 
-                  <Link href="https://sara-lemos-client-dashboard.vercel.app/login" onClick={() => setOpen(false)}>
+                  <Link href="https://sara-lemos-client-dashboard-cyan.vercel.app/login" onClick={() => setOpen(false)}>
                     <Button className="w-full bg-[#904ED4] text-white">
                       Login
                     </Button>
