@@ -22,7 +22,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Hierro A Medida",
+  title: "Lime Pitch",
   description:
     "Design amazing digital experiences that create more happy in the world.",
 };

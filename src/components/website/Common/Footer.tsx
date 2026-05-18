@@ -1,9 +1,12 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Facebook, Linkedin, Instagram } from "lucide-react";
 import Image from "next/image";
+import ContactModal from "@/components/ReusableSection/ContactModal";
 
 const Footer = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <footer className="bg-[#2C2668] text-white py-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-0">
@@ -60,18 +63,28 @@ const Footer = () => {
             <ul className="space-y-3">
               {[
                 { name: "Help Center", href: "/#help-center" },
-                { name: "Contact", href: "/#contact" },
+                { name: "Contact", href: "/#contact", isModal: true },
                 { name: "FAQ", href: "/#help-center" },
               ].map((link) => (
                 <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-white/80 hover:text-white transition-colors duration-300 flex items-center group"
-                    aria-label={`Navigate to ${link.name}`}
-                  >
-                    <span className="w-1 h-1 bg-green-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    {link.name}
-                  </Link>
+                  {link.isModal ? (
+                    <button
+                      onClick={() => setIsOpen(true)}
+                      className="text-white/80 hover:text-white transition-colors duration-300 flex items-center group text-left cursor-pointer bg-transparent border-none p-0 font-normal w-full"
+                    >
+                      <span className="w-1 h-1 bg-green-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                      {link.name}
+                    </button>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-white/80 hover:text-white transition-colors duration-300 flex items-center group"
+                      aria-label={`Navigate to ${link.name}`}
+                    >
+                      <span className="w-1 h-1 bg-green-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -154,6 +167,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <ContactModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </footer>
   );
 };
