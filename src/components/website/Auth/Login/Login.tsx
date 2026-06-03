@@ -36,7 +36,7 @@ export default function Login() {
         toast.error(result?.error || "Login failed. Please try again.");
       }
     } catch (err) {
-      toast.error(  "Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -174,7 +174,7 @@ export default function Login() {
           </motion.div>
 
           <div className="text-center mt-6 text-[#65A30D] cursor-pointer">
-           <span className="text-[#343A40] mr-1"> Don’t have an account?</span>
+            <span className="text-[#343A40] mr-1"> Don’t have an account?</span>
             <Link href="/register" className="text-[#65A30D] font-semibold">
               Sign Up
             </Link>

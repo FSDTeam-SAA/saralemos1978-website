@@ -30,7 +30,7 @@ export default function Navbar() {
   const handleMenuItemClick = (href: string) => {
     isClickingRef.current = true;
     setActiveSection(href);
-    
+
     // Disable scrollspy logic for 1000ms during scroll animation to avoid jumpiness
     setTimeout(() => {
       isClickingRef.current = false;
@@ -53,10 +53,10 @@ export default function Navbar() {
 
       let current = "/";
       const sections = menuItems.map((item) => item.href.replace("/#", ""));
-      
+
       // Check if we are at the bottom of the page
       const isAtBottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50;
-      
+
       if (isAtBottom) {
         current = `/#${sections[sections.length - 1]}`;
       } else {
@@ -64,7 +64,7 @@ export default function Navbar() {
         for (let i = sections.length - 1; i >= 0; i--) {
           const section = sections[i];
           if (section === "/") continue;
-          
+
           const element = document.getElementById(section);
           if (element) {
             const rect = element.getBoundingClientRect();
@@ -92,7 +92,7 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("hashchange", handleHashChange);
-    
+
     handleScroll(); // Call once on mount
 
     // Retry handleScroll after 500ms to account for delayed page hydration/layout shifts
@@ -151,7 +151,7 @@ export default function Navbar() {
         {/* ================= Auth Buttons ================= */}
         <div className="hidden md:flex items-center gap-2">
           {isLoggedIn ? (
-            <Link href="https://sara-lemos-client-dashboard-cyan.vercel.app">
+            <Link href="https://dashboard.limepitch.com">
               <Button
                 variant="outline"
                 className="bg-white rounded-4xl font-medium transition-all duration-300 text-[#904ED4] border border-[#904ED4] cursor-pointer w-40 h-12"
@@ -170,7 +170,7 @@ export default function Navbar() {
                 </Button>
               </Link>
 
-              <Link href="https://sara-lemos-client-dashboard-cyan.vercel.app/login">
+              <Link href="https://dashboard.limepitch.com/login">
                 <Button className="bg-[#904ED4] rounded-4xl font-medium transition-all duration-300 text-white border border-[#904ED4] cursor-pointer w-40 h-12">
                   Login
                 </Button>
@@ -223,7 +223,7 @@ export default function Navbar() {
                 {isLoggedIn ? (
                   <div className="flex flex-col gap-4 mt-8 px-4">
                     <Link
-                      href="https://sara-lemos-client-dashboard-cyan.vercel.app/"
+                      href="https://dashboard.limepitch.com"
                       onClick={() => setOpen(false)}
                     >
                       <Button
@@ -245,7 +245,7 @@ export default function Navbar() {
                       </Button>
                     </Link>
 
-                    <Link href="https://sara-lemos-client-dashboard-cyan.vercel.app/login" onClick={() => setOpen(false)}>
+                    <Link href="https://dashboard.limepitch.com/login" onClick={() => setOpen(false)}>
                       <Button className="w-full bg-[#904ED4] text-white">
                         Login
                       </Button>
