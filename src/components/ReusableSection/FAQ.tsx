@@ -21,33 +21,49 @@ interface FaqItem {
 const fakeFaqData: FaqItem[] = [
   {
     _id: "1",
-    question: "What services do you offer?",
+    question: "What is Limepitch?",
     answer:
-      "We offer a variety of services including web development, mobile app development, and digital marketing.",
+      "Limepitch is a yacht marketing and listing platform that helps yacht brokers, charter companies, owners, and marine businesses manage listings, create content, and promote yachts across digital channels from one central dashboard.",
     createdAt: "2025-01-01T10:00:00Z",
     updatedAt: "2025-01-01T10:00:00Z",
   },
   {
     _id: "2",
-    question: "How can I contact support?",
+    question: "Who can use Limepitch?",
     answer:
-      "You can contact our support team via email at support@example.com or by calling 123-456-7890.",
+      "Limepitch is designed for yacht brokers, charter operators, marinas, yacht management companies, marine brands, and yacht owners looking to increase the visibility of their vessels online.",
     createdAt: "2025-01-02T11:00:00Z",
     updatedAt: "2025-01-02T11:00:00Z",
   },
   {
     _id: "3",
-    question: "Do you offer refunds?",
+    question: "What can I do with Limepitch?",
     answer:
-      "Yes, we offer a 30-day refund policy for all our services. Please contact support for assistance.",
+      "Users can create and manage yacht listings, upload photos and videos, publish blog content, and market yachts through connected digital and social media channels.",
     createdAt: "2025-01-03T12:00:00Z",
     updatedAt: "2025-01-03T12:00:00Z",
   },
   {
     _id: "4",
-    question: "Do you offer refunds?",
+    question: "Can I connect my Facebook and Instagram accounts?",
     answer:
-      "Yes, we offer a 30-day refund policy for all our services. Please contact support for assistance.",
+      "Yes. Limepitch supports Facebook and Instagram integrations, allowing users to publish content and manage social media marketing directly from the platform, subject to the permissions granted by the user.",
+    createdAt: "2025-01-03T12:00:00Z",
+    updatedAt: "2025-01-03T12:00:00Z",
+  },
+  {
+    _id: "5",
+    question: "Is my data secure?",
+    answer:
+      "Yes. Limepitch uses industry-standard security measures to protect user accounts and data. Access to information is restricted to authorised systems and personnel.",
+    createdAt: "2025-01-03T12:00:00Z",
+    updatedAt: "2025-01-03T12:00:00Z",
+  },
+  {
+    _id: "6",
+    question: "How do I request deletion of my account and data?",
+    answer:
+      "Users can request account and data deletion by contacting our team at [privacy@limepitch.com](mailto:privacy@limepitch.com). Requests are processed in accordance with applicable privacy regulations and our Privacy Policy.",
     createdAt: "2025-01-03T12:00:00Z",
     updatedAt: "2025-01-03T12:00:00Z",
   },
@@ -64,7 +80,7 @@ const FAQ = () => {
             Frequently <span className="text-[#65A30D]">Asked Questions</span>
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed px-2 sm:px-0">
-            Find quick answers to the most common questions about our facilities
+            Everything needed to know about managing yacht listings, marketing vessels, and using the Limepitch platform.
             and services.
           </p>
         </div>

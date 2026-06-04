@@ -4,145 +4,198 @@ const PrivacyPolicy = () => {
   return (
     <div className="bg-[#fffff0] min-h-screen">
       {/* Header Section */}
-      <div className=" py-16 md:py-24 border-b border-gray-100">
+      <div className="py-16 md:py-24 border-b border-gray-100">
         <div className="container mx-auto px-4 md:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-[#2E266D] mb-4">
             Privacy Policy
           </h1>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Effective Date: February 1, 2026
+            Effective Date: 4 June 2026
           </p>
         </div>
       </div>
 
       {/* Content Section */}
-      <div className="container bg-white y-20 mx-auto px-4 md:px-8 py-16">
+      <div className="container bg-white mx-auto px-4 md:px-8 py-16">
         <div className="max-w-4xl mx-auto space-y-12">
+
           {/* Introduction */}
           <section>
+            <h2 className="text-2xl font-bold text-[#2E266D] mb-4">
+              Introduction
+            </h2>
             <p className="text-lg text-[#5D665E] leading-relaxed">
-              This Privacy Policy describes how we collect, use, and protect information when you use our website.
+              This Privacy Policy explains how Lime Pitch Ltd (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) collects, uses, stores, and protects personal information through the Limepitch platform.
+              <br /><br />
+              Limepitch is a yacht marketing and listing platform that enables users to create accounts, manage yacht listings, publish content, connect social media accounts, and promote yachts across digital channels.
+              <br /><br />
+              By using Limepitch, users agree to the collection and use of information in accordance with this Privacy Policy.
             </p>
           </section>
 
           {/* Information We Collect */}
           <section>
-            <h2 className="text-2xl font-bold text-[#2E266D] mb-4 flex items-center">
-              {/* <span className="w-8 h-8 bg-[#65A30D] text-white rounded-full flex items-center justify-center mr-3 text-sm">1</span> */}
+            <h2 className="text-2xl font-bold text-[#2E266D] mb-4">
               Information We Collect
             </h2>
-            <div className="pl-11 space-y-4">
-              <ul className="list-disc space-y-3 text-[#5D665E] text-lg">
-                <li>Information you provide directly (such as when you fill out a form or contact us).</li>
-                <li>Basic technical data (such as IP address, browser type, and pages visited).</li>
-                <li>Cookies and similar technologies to improve user experience.</li>
-              </ul>
+
+            <div className="space-y-6 text-[#5D665E] text-lg">
+
+              <div>
+                <h3 className="font-semibold text-[#2E266D] mb-2">
+                  Account Information
+                </h3>
+                <ul className="list-disc pl-6 space-y-1">
+                  <li>Name</li>
+                  <li>Email address</li>
+                  <li>Company name</li>
+                  <li>Username and password</li>
+                  <li>Contact details</li>
+                  <li>Profile information</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-[#2E266D] mb-2">
+                  Yacht Listing Information
+                </h3>
+                <ul className="list-disc pl-6 space-y-1">
+                  <li>Yacht descriptions</li>
+                  <li>Images and videos</li>
+                  <li>Specifications</li>
+                  <li>Pricing information</li>
+                  <li>Location information</li>
+                  <li>Marketing content</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-[#2E266D] mb-2">
+                  Social Media Integrations
+                </h3>
+                <p>
+                  We may access data from Facebook, Instagram, or other platforms based on user permissions. This may include public profile data, Pages, Business Account info, publishing permissions, and insights.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-[#2E266D] mb-2">
+                  Website Usage Information
+                </h3>
+                <ul className="list-disc pl-6 space-y-1">
+                  <li>IP address</li>
+                  <li>Browser type</li>
+                  <li>Device information</li>
+                  <li>Pages viewed</li>
+                  <li>Usage statistics</li>
+                  <li>Cookies and tracking data</li>
+                </ul>
+              </div>
+
             </div>
           </section>
 
           {/* How We Use Information */}
           <section>
-            <h2 className="text-2xl font-bold text-[#2E266D] mb-4 flex items-center">
-              {/* <span className="w-8 h-8 bg-[#65A30D] text-white rounded-full flex items-center justify-center mr-3 text-sm">2</span> */}
+            <h2 className="text-2xl font-bold text-[#2E266D] mb-4">
               How We Use Information
             </h2>
-            <div className="pl-11 space-y-4">
-              <p className="text-lg text-[#5D665E]">We use the information we collect to:</p>
-              <ul className="list-disc space-y-3 text-[#5D665E] text-lg">
-                <li>Provide and improve our services.</li>
-                <li>Respond to inquiries or requests.</li>
-                <li>Analyze site usage and trends.</li>
-                <li>Comply with legal requirements.</li>
-              </ul>
-            </div>
+
+            <ul className="list-disc pl-6 space-y-2 text-[#5D665E] text-lg">
+              <li>Create and manage user accounts</li>
+              <li>Publish and manage yacht listings</li>
+              <li>Enable social media publishing features</li>
+              <li>Improve platform performance</li>
+              <li>Respond to support requests</li>
+              <li>Communicate updates</li>
+              <li>Monitor security and prevent misuse</li>
+              <li>Comply with legal obligations</li>
+            </ul>
           </section>
 
-          {/* Sharing of Information */}
+          {/* Sharing Information */}
           <section>
-            <h2 className="text-2xl font-bold text-[#2E266D] mb-4 flex items-center">
-              {/* <span className="w-8 h-8 bg-[#65A30D] text-white rounded-full flex items-center justify-center mr-3 text-sm">3</span> */}
-              Sharing of Information
+            <h2 className="text-2xl font-bold text-[#2E266D] mb-4">
+              Sharing Information
             </h2>
-            <div className="pl-11">
-              <p className="text-lg text-[#5D665E] leading-relaxed">
-                We do not sell or rent personal information to third parties. We may share limited information with trusted service providers who help us operate our website or comply with the law.
-              </p>
-            </div>
+
+            <ul className="list-disc pl-6 space-y-2 text-[#5D665E] text-lg">
+              <li>We do not sell personal information</li>
+              <li>Shared with service providers</li>
+              <li>Legal/regulatory compliance</li>
+              <li>Platform security protection</li>
+              <li>Social media integrations when required</li>
+            </ul>
           </section>
 
-          {/* Data Security */}
+          {/* Data Storage */}
           <section>
-            <h2 className="text-2xl font-bold text-[#2E266D] mb-4 flex items-center">
-              {/* <span className="w-8 h-8 bg-[#65A30D] text-white rounded-full flex items-center justify-center mr-3 text-sm">4</span> */}
-              Data Security
+            <h2 className="text-2xl font-bold text-[#2E266D] mb-4">
+              Data Storage and Security
             </h2>
-            <div className="pl-11">
-              <p className="text-lg text-[#5D665E] leading-relaxed">
-                We use reasonable safeguards to protect your information. However, no method of transmission or storage is 100% secure.
-              </p>
-            </div>
-          </section>
-
-          {/* Your Rights */}
-          <section>
-            <h2 className="text-2xl font-bold text-[#2E266D] mb-4 flex items-center">
-              {/* <span className="w-8 h-8 bg-[#65A30D] text-white rounded-full flex items-center justify-center mr-3 text-sm">5</span> */}
-              Your Rights
-            </h2>
-            <div className="pl-11 space-y-6">
-              <p className="text-lg text-[#5D665E] leading-relaxed">
-                Depending on your location, you may have rights to access, update, or delete your personal information. You can request data deletion through our Facebook app integration or contact us at the email below to exercise these rights.
-              </p>
-              <div className="bg-[#EAE9FF] p-6 rounded-2xl border border-[#D1CFFA]">
-                <h3 className="text-lg font-semibold text-[#2E266D] mb-2 text-balance">Data Deletion</h3>
-                <p className="text-[#5D665E]">
-                  When you remove our app from your Facebook account or request data deletion, we will process your request and provide you with a confirmation code and status tracking URL. Data deletion requests are typically processed within 30 days.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Third-Party Links */}
-          <section>
-            <h2 className="text-2xl font-bold text-[#2E266D] mb-4 flex items-center">
-              {/* <span className="w-8 h-8 bg-[#65A30D] text-white rounded-full flex items-center justify-center mr-3 text-sm">6</span> */}
-              Third-Party Links
-            </h2>
-            <div className="pl-11">
-              <p className="text-lg text-[#5D665E] leading-relaxed">
-                Our website may contain links to other sites. We are not responsible for the privacy practices of those websites.
-              </p>
-            </div>
-          </section>
-
-          {/* Changes to This Policy */}
-          <section>
-            <h2 className="text-2xl font-bold text-[#2E266D] mb-4 flex items-center">
-              {/* <span className="w-8 h-8 bg-[#65A30D] text-white rounded-full flex items-center justify-center mr-3 text-sm">7</span> */}
-              Changes to This Policy
-            </h2>
-            <div className="pl-11">
-              <p className="text-lg text-[#5D665E] leading-relaxed">
-                We may update this Privacy Policy from time to time. Any changes will be posted on this page with the updated effective date.
-              </p>
-            </div>
-          </section>
-
-          {/* Contact Us */}
-          <section className="bg-gray-50 p-8 rounded-3xl border border-gray-100">
-            <h2 className="text-2xl font-bold text-[#2E266D] mb-6">Contact Us</h2>
-            <p className="text-[#5D665E] text-lg mb-6">
-              If you have questions about this Privacy Policy, you can contact us at:
+            <p className="text-lg text-[#5D665E] leading-relaxed">
+              We implement technical and organisational measures to protect your data. However, no system is 100% secure.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href="mailto:privacy@limepitch.com" 
-                className="bg-[#5A50F5] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#483fd8] transition-all text-center"
-              >
-                Email: privacy@limepitch.com
-              </a>
+          </section>
+
+          {/* Cookies */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#2E266D] mb-4">
+              Cookies and Analytics
+            </h2>
+            <ul className="list-disc pl-6 space-y-2 text-[#5D665E] text-lg">
+              <li>Remember user preferences</li>
+              <li>Analyse usage</li>
+              <li>Improve functionality</li>
+              <li>Measure marketing performance</li>
+            </ul>
+          </section>
+
+          {/* Data Retention */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#2E266D] mb-4">
+              Data Retention
+            </h2>
+            <p className="text-lg text-[#5D665E]">
+              We retain data only as long as necessary for service delivery, legal compliance, and dispute resolution.
+            </p>
+          </section>
+
+          {/* Rights */}
+          <section>
+            <h2 className="text-2xl font-bold text-[#2E266D] mb-4">
+              User Rights
+            </h2>
+            <ul className="list-disc pl-6 space-y-2 text-[#5D665E] text-lg">
+              <li>Access data</li>
+              <li>Correct data</li>
+              <li>Delete data</li>
+              <li>Data portability</li>
+              <li>Withdraw consent</li>
+            </ul>
+
+            <div className="mt-6 bg-[#EAE9FF] p-6 rounded-2xl border border-[#D1CFFA]">
+              <h3 className="font-semibold text-[#2E266D] mb-2">
+                Data Deletion Requests
+              </h3>
+              <p className="text-[#5D665E]">
+                Email: privacy@limepitch.com — We respond within a reasonable timeframe.
+              </p>
             </div>
           </section>
+
+          {/* Contact */}
+          <section className="bg-gray-50 p-8 rounded-3xl border border-gray-100">
+            <h2 className="text-2xl font-bold text-[#2E266D] mb-4">
+              Contact Information
+            </h2>
+            <p className="text-[#5D665E] text-lg">
+              Lime Pitch Ltd<br />
+              Email: info@limepitch.com<br />
+              Website: www.limepitch.com
+            </p>
+          </section>
+
         </div>
       </div>
     </div>

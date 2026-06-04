@@ -98,7 +98,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {[
                 { name: "Privacy Policy", href: "/privacy-policy" },
-                { name: "Terms & Conditions", href: "/privacy-policy" },
+                { name: "Data Deletion Instructions", href: "/data-deletion-instructions" },
                 // { name: "Security", href: "/#" },
               ].map((link) => (
                 <li key={link.name}>
@@ -116,25 +116,28 @@ const Footer = () => {
           </div>
 
           {/* Newsletter Subscription & Social Links */}
-          <div className="space-y-6">
+          <div className="space-y-6 ">
             <div>
               <p className="text-white/80 text-sm mb-4 ">
-               Subscribe for updates & news
+                Subscribe for updates & news
               </p>
-              <form className="flex flex-col sm:flex-row gap-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-grow px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
-                  aria-label="Email address for subscription"
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-3 bg-[#5A50F5] hover:bg-blue-800  cursor-pointer  text-white font-semibold rounded-lg transition-colors duration-300 whitespace-nowrap"
-                  aria-label="Subscribe to newsletter"
-                >
-                  Subscribe
-                </button>
+              <form className="w-full">
+                <div className="flex w-full items-stretch gap-0 overflow-hidden rounded-lg border border-white/20 bg-white/10">
+
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="flex-1 min-w-0 px-4 py-3 bg-transparent text-white placeholder-white/50 focus:outline-none"
+                  />
+
+                  <button
+                    type="submit"
+                    className="shrink-0 px-6 bg-[#5A50F5] cursor-pointer text-white font-semibold transition-colors duration-300"
+                  >
+                    Subscribe
+                  </button>
+
+                </div>
               </form>
             </div>
 
