@@ -41,18 +41,20 @@ const PRODUCT_CATEGORIES = [
 ]
 
 const PRICE_RANGES = [
-  { value: 'under-500', label: 'Under $500' },
-  { value: '500-1500', label: '$500 - $1,500' },
-  { value: '1500-5000', label: '$1,500 - $5,000' },
-  { value: '5000-15000', label: '$5,000 - $15,000' },
-  { value: 'over-15000', label: 'Over $15,000' },
-]
+  { value: 'under-500k', label: 'Under $500,000' },
+  { value: '500k-1m', label: '$500,000 - $1 Million' },
+  { value: '1m-5m', label: '$1 Million - $5 Million' },
+  { value: '5m-10m', label: '$5 Million - $10 Million' },
+  { value: '10m-25m', label: '$10 Million - $25 Million' },
+  { value: '25m-50m', label: '$25 Million - $50 Million' },
+  { value: 'over-50m', label: 'Over $50 Million' },
+];
 
 const SALES_CHANNELS = [
   { id: 'YachtWorld', label: 'YachtWorld' },
   { id: 'Boat-Trader', label: 'Boat Trader' },
   { id: 'Boats-com', label: 'Boats.com' },
-  { id: 'YachtCloser', label: 'vYachtCloser' },
+  { id: 'YachtCloser', label: 'YachtCloser' },
   { id: 'SuperYacht-com', label: 'SuperYacht.com' },
   { id: 'Trawler-Yachts', label: 'Trawler-Yachts' },
   { id: 'IYBA', label: 'IYBA' },
@@ -93,7 +95,7 @@ export function Step3Form({ onNext, onPrevious }: Step3FormProps) {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold text-[#65A30D] text-center">Listing Preferences</h1>
-          <p className="text-center text-gray-600 mt-2">Let'S Set up your to Create amazing yacnt marketing</p>
+          <p className="text-center text-gray-600 mt-2">Let&apos;S Set up your to Create amazing yacnt marketing</p>
         </div>
 
         {/* Product Categories */}
