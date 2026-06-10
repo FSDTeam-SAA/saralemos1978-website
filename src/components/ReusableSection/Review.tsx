@@ -12,46 +12,46 @@ export default function Review() {
     text: string;
     rating: number;
   }[] = [
-    // {
-    //   name: "P.S.",
-    //   text: `“What a joy it’s been working with Madeline! She’s absolutely wonderful! She’s super kind, patient, and really knows what she’s doing. From the first day, she made me feel comfortable and cared for. I never felt silly just supported! Madeline not only listens to me but has actively helped me to feel great while always smiling with gentle words of encouragement! I would recommend Dr. May to anyone looking for a wonderful physical therapist!”`,
-    //   rating: 5,
-    // },
-    // {
-    //   name: "L.S.",
-    //   text: `“I met with Kevin after I broke my ankle. He was kind, conscientious, and very helpful. His breadth of knowledge and experience is evident in the way He explains any exercises, the need for specific movements, and why long-term they are important. I highly recommend him to others, and credit Lolo Physical Therapy with their attention to detail. Because of them, I've regained my mobility and strength.”`,
-    //   rating: 5,
-    // },
-    // {
-    //   name: "K.M.",
-    //   text: `“They truly care about each patient. The care is always very kind and compassionate. I've been to a lot of PT and this has been my best experience.”`,
-    //   rating: 5,
-    // },
-    // {
-    //   name: "M.G.",
-    //   location: "Los Angeles, CA",
-    //   text: `“Went in for a few visits with Madeline to fix my plantar faciitis. In the first ten minutes, she identified the root cause for the injury which I never would have thought as a contributor. During the consults she wrote down the home exercises in a way I could understand which helped me ensure I was doing them correctly. Its always worth the travel time to see Madeline. Its nice to feel like you're working with a PT whose goal is to treat patients not increase profits.”`,
-    //   rating: 5,
-    // },
-    {
-      name: "M.G.",
-      location: "Los Angeles, CA",
-      text: `“Went in for a few visits with Madeline to with a PT whose goal is to treat patients not increase profits.”`,
-      rating: 5,
-    },
-    {
-      name: "M.G.",
-      location: "Los Angeles, CA",
-      text: `“Went in for a few visits with Madeline to fix my plantar faciiti me ensure I was doing them correctly. Its always worth the travel time to see Madeline. Its nice to feel like you're working with a PT whose goal is to treat patients not increase profits.”`,
-      rating: 5,
-    },
-    {
-      name: "M.G.",
-      location: "Los Angeles, CA",
-      text: `“Went in for a few visits with Madeline t ay I could understand which helped me ensure I was doing them correctly. Its always worth the travel time to see Madeline. Its nice to feel like you're working with a PT whose goal is to treat patients not increase profits.”`,
-      rating: 5,
-    },
-  ];
+      // {
+      //   name: "P.S.",
+      //   text: `“What a joy it’s been working with Madeline! She’s absolutely wonderful! She’s super kind, patient, and really knows what she’s doing. From the first day, she made me feel comfortable and cared for. I never felt silly just supported! Madeline not only listens to me but has actively helped me to feel great while always smiling with gentle words of encouragement! I would recommend Dr. May to anyone looking for a wonderful physical therapist!”`,
+      //   rating: 5,
+      // },
+      // {
+      //   name: "L.S.",
+      //   text: `“I met with Kevin after I broke my ankle. He was kind, conscientious, and very helpful. His breadth of knowledge and experience is evident in the way He explains any exercises, the need for specific movements, and why long-term they are important. I highly recommend him to others, and credit Lolo Physical Therapy with their attention to detail. Because of them, I've regained my mobility and strength.”`,
+      //   rating: 5,
+      // },
+      // {
+      //   name: "K.M.",
+      //   text: `“They truly care about each patient. The care is always very kind and compassionate. I've been to a lot of PT and this has been my best experience.”`,
+      //   rating: 5,
+      // },
+      // {
+      //   name: "M.G.",
+      //   location: "Los Angeles, CA",
+      //   text: `“Went in for a few visits with Madeline to fix my plantar faciitis. In the first ten minutes, she identified the root cause for the injury which I never would have thought as a contributor. During the consults she wrote down the home exercises in a way I could understand which helped me ensure I was doing them correctly. Its always worth the travel time to see Madeline. Its nice to feel like you're working with a PT whose goal is to treat patients not increase profits.”`,
+      //   rating: 5,
+      // },
+      {
+        name: "M.G.",
+        location: "Los Angeles, CA",
+        text: `“Went in for a few visits with Madeline to with a PT whose goal is to treat patients not increase profits.”`,
+        rating: 5,
+      },
+      {
+        name: "M.G.",
+        location: "Los Angeles, CA",
+        text: `“Went in for a few visits with Madeline to fix my plantar faciiti me ensure I was doing them correctly. Its always worth the travel time to see Madeline. Its nice to feel like you're working with a PT whose goal is to treat patients not increase profits.”`,
+        rating: 5,
+      },
+      {
+        name: "M.G.",
+        location: "Los Angeles, CA",
+        text: `“Went in for a few visits with Madeline t ay I could understand which helped me ensure I was doing them correctly. Its always worth the travel time to see Madeline. Its nice to feel like you're working with a PT whose goal is to treat patients not increase profits.”`,
+        rating: 5,
+      },
+    ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(3);
@@ -97,7 +97,7 @@ export default function Review() {
 
       {/* Content */}
       <div className="relative z-10 container  text-start mx-auto">
-        <span  className="bg-[#ECFECD] text-[#65A30D] px-4 py-2 rounded-full ">Testimonials</span>
+        <span className="bg-[#ECFECD] text-[#65A30D] px-4 py-2 rounded-full mb-2 ">Testimonials</span>
         <h2 className="text-3xl font-semibold text-white mb-2 mt-2">
           <span className="text-[#2E266D]">Loved</span>{" "}
           <span className="text-[#B5ED5B]">By Industry</span>{" "}
@@ -123,18 +123,17 @@ export default function Review() {
                 style={{ width: cardWidth }}
               >
                 <CardContent className="px-6 pt-6 text-left flex flex-col h-full justify-start">
-                  
+
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-1">
                       {[...Array(5)].map((_, idx) => (
                         <Star
                           key={idx}
                           size={16}
-                          className={`${
-                            idx < t.rating
+                          className={`${idx < t.rating
                               ? "text-[#B5ED5B] fill-[#B5ED5B]"
                               : "text-gray-300"
-                          } transition-all duration-200`}
+                            } transition-all duration-200`}
                         />
                       ))}
                     </div>
