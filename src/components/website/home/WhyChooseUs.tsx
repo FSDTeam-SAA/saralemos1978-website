@@ -10,13 +10,13 @@ const WhyChooseUs = () => {
         {/* Header */}
         <div className="mb-12 text-center">
           <span className="text-sm font-semibold uppercase tracking-wide rounded-full p-2 bg-white text-gray-800 ">
-            Why Choose Us
+            Why Choose Lime Pitch
           </span>
-          <h2 className="mt-3 text-3xl font-bold text-white">
-           Trusted By Industry Leaders
+          <h2 className="mt-3 text-3xl font-bold text-white" style={{ fontFamily: "var(--font-fraunces)" }}>
+            Trusted By Industry Leaders
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-white">
-           Join the revolution in yacht listing management and experience unparalleled efficiency
+            Join the revolution in yacht listing management and experience unparalleled efficiency
           </p>
         </div>
 
@@ -31,7 +31,6 @@ const WhyChooseUs = () => {
 
           <WhyChooseUsCard
             icon={<Users size={26} />}
-
             count="99.9%"
             title="Secure Platform"
             description="Enterprise-grade security for your data."
@@ -45,7 +44,7 @@ const WhyChooseUs = () => {
           />
 
           <WhyChooseUsCard
-            icon={<Heart  size={26} />}
+            icon={<Heart size={26} />}
 
             count="1K+"
             title="Happy Clients"

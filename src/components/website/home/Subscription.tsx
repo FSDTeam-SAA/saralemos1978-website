@@ -128,11 +128,11 @@ const Subscription = () => {
   };
 
   return (
-    <div  className="font-sans bg-gray-50 py-20 px-4 md:px-8" id="pricing">
+    <div className="font-sans bg-gray-50 py-20 px-4 md:px-8" id="pricing">
       <div className="container  mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16 ">
-          <span className="bg-[#EAE9FF] py-2 px-6 rounded-full mb-1.5">
+          <span className="bg-[#EAE9FF] py-2 px-6  mb-1.5 inline-block  rounded-full ">
             Pricing
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-[#2E266D] mb-2">
@@ -174,11 +174,10 @@ const Subscription = () => {
             <div
               className={`
                   h-full rounded-2xl border-2 overflow-hidden flex flex-col
-                  ${
-                    subscriptionPlan
-                      ? " bg-white border-gray-200 shadow-lg"
-                      : "bg-[#5A50F5] border-blue-300 shadow-2xl"
-                  }
+                  ${subscriptionPlan
+                  ? " bg-white border-gray-200 shadow-lg"
+                  : "bg-[#5A50F5] border-blue-300 shadow-2xl"
+                }
                 `}
             >
               {/* Card Header */}
@@ -227,11 +226,10 @@ const Subscription = () => {
                   className={`
                       w-full py-4 rounded-4xl font-semibold text-lg transition-all duration-300
                       ${isLoading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
-                      ${
-                        subscriptionPlan
-                          ? " bg-[#5A50F5] text-white hover:bg-gray-800"
-                          : "bg-[#B5ED5B] text-black hover:opacity-90"
-                      }
+                      ${subscriptionPlan
+                      ? " bg-[#5A50F5] text-white hover:bg-gray-800"
+                      : "bg-[#B5ED5B] text-black hover:opacity-90"
+                    }
                     `}
                 >
                   Contact Sales
@@ -250,17 +248,15 @@ const Subscription = () => {
                           `}
                       >
                         <Check
-                          className={`    ${
-                            subscriptionPlan
+                          className={`    ${subscriptionPlan
                               ? "text-[#5B4FFF]"
                               : " text-[#B5ED5B]"
-                          }`}
+                            }`}
                         />
                       </div>
                       <span
-                        className={`text-gray-700    ${
-                          subscriptionPlan ? "text-black" : "text-white"
-                        }`}
+                        className={`text-gray-700    ${subscriptionPlan ? "text-black" : "text-white"
+                          }`}
                       >
                         {feature}
                       </span>

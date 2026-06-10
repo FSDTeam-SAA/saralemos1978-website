@@ -33,14 +33,15 @@ export default function Banner() {
             <div className="mt-8 flex gap-4">
               <a
                 href="#pricing"
-                className=" bg-[#B5ED5B] px-8 py-4 text-[#343A40] font-semibold transition hover:bg-[#B5ED5B] rounded-4xl flex items-center"
+                className="bg-[#B5ED5B] px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg text-[#343A40] font-semibold transition hover:bg-[#B5ED5B] rounded-4xl flex items-center"
               >
-                <span> Start Free Trial</span> <ArrowRight className="ml-2" />
+                <span>Start Free Trial</span>
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </a>
 
               <a
                 href="#pricing"
-                className=" border border-[#5A50F5] px-8 py-4 text-[#5A50F5] bg-[#F8F7F3] font-semibold transition rounded-4xl flex items-center"
+                className="border border-[#5A50F5] px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg text-[#5A50F5] bg-[#F8F7F3] font-semibold transition rounded-4xl flex items-center"
               >
                 Watch Demo
               </a>
