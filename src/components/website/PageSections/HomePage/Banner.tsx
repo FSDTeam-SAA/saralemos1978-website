@@ -1,17 +1,28 @@
 
 
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export default function Banner() {
   return (
     <section className="relative h-screen w-full">
       {/* Background Image */}
-      <div
+      {/* <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/images/banner.jpeg')",
         }}
-      />
+      /> */}
+
+      <div className="absolute inset-0">
+        <Image
+          src="/images/banner.jpeg"
+          alt="Banner Background"
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50" />
