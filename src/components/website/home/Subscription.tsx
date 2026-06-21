@@ -249,8 +249,8 @@ const Subscription = () => {
                       >
                         <Check
                           className={`    ${subscriptionPlan
-                              ? "text-[#5B4FFF]"
-                              : " text-[#B5ED5B]"
+                            ? "text-[#5B4FFF]"
+                            : " text-[#B5ED5B]"
                             }`}
                         />
                       </div>
