@@ -1,7 +1,10 @@
-import React from "react";
+"use client"
+
 import { Upload, Share2, CircleCheckBig, Fan } from "lucide-react";
 import HowToWorkCard from "@/components/ReusableSection/HowToWorkCard";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
 
 const HowToWork = () => {
   return (
@@ -54,8 +57,13 @@ const HowToWork = () => {
           />
         </div>
         <div className="mt-10 flex justify-center">
-          <Button className="bg-[#5A50F5] cursor-pointer py-3! text-base rounded-3xl">
-            Start Free Trial
+          <Button
+            asChild
+            className="bg-[#5A50F5] cursor-pointer py-3! text-base rounded-3xl"
+          >
+            <Link href="/register">
+              Start Free Trial
+            </Link>
           </Button>
         </div>
       </div>
