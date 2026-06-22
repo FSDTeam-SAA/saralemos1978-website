@@ -24,7 +24,7 @@ const poppins = Poppins({
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -39,10 +39,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${fraunces.variable} antialiased`}
-      >
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${fraunces.variable}`}
+    >
+      <body className="font-sans antialiased">
         <MainProviders>
           <Provider> {children} </Provider>
         </MainProviders>

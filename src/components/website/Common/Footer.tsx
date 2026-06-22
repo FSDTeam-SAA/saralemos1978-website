@@ -23,9 +23,7 @@ const Footer = () => {
             />
 
             <p className="text-white/80 leading-relaxed max-w-md">
-              Active surveillance testing or detecting cases and providing the
-              necessary information to the relevant authorities for timely
-              action.
+              Create, manage, and market yacht listings while publishing content and coordinating social media promotion in one place
             </p>
           </div>
 
